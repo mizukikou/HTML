@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>jQuery Mobile 網路應用程式</title>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+<div data-role="page" id="page">
+	<div data-role="header">
+		<h1>Dialog</h1>
+	</div>
+	<div data-role="content">
+		<a href="#message1" data-role="button">關閉鈕在右</a>
+		<a href="#message2" data-role="button">沒有關閉鈕</a>
+	</div>
+	<div data-role="footer">
+		<h4>jQuery Mobile</h4>
+	</div>
+</div>
+<div id="message1" data-role="page" data-close-btn="right" data-dialog="true">
+	<div data-role="header"><h1>Message</h1></div>
+	<div data-role="content"><p>您好，關閉鈕在右。</p><a href="#" data-role="button" data-rel="back">OK</a></div>
+</div>
+<div id="message2" data-role="page" data-close-btn="none" data-dialog="true">
+	<div data-role="header"><h1>Message</h1></div>
+	<div data-role="content"><p>您好，沒有關閉鈕。</p><a href="#" data-role="button" data-rel="back">OK</a></div>
+</div>
+</body>
+</html>

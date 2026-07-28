@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>範例</title>
+</head>
+
+<body>
+<script>
+var student = new Array();
+student[0]=["David", "95", "80"];
+student[1]=["Lily", "82", "85"];
+student[2]=["Perry", "90", "92"];
+document.write("<table border='1'><tr><td>姓名</td><td>國文</td><td>英文</td></tr>");
+for (var i=0; i<student.length; i++) {
+	document.write("<tr>");
+	for (var j=0; j<student[i].length; j++) {
+		document.write("<td>" + student[i][j] + "</td>");
+	}
+	document.write("</tr>");
+}
+document.write("</table>");
+</script>
+</body>
+</html>

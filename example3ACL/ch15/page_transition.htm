@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>jQuery Mobile 網路應用程式</title>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+<div data-role="page" id="page">
+  <div data-role="header">
+    <h1>PageTransition</h1>
+  </div>
+  <div data-role="content">
+    <p><a href="#page2" data-transition="fade">Fade</a></p>
+    <p><a href="#page2" data-transition="flip">Flip</a></p>
+    <p><a href="#page2" data-transition="flow">Flow</a></p>
+    <p><a href="#page2" data-transition="pop">Pop</a></p>
+    <p><a href="#page2" data-transition="slide">Slide</a></p>
+    <p><a href="#page2" data-transition="slidedown">Slidedown</a></p>
+    <p><a href="#page2" data-transition="slidefade">Slidefade</a></p>
+    <p><a href="#page2" data-transition="slideup">Slideup</a></p>
+    <p><a href="#page2" data-transition="turn">Turn</a></p>
+    <p><a href="#page2" data-transition="none">None</a></p>
+  </div>
+  <div data-role="footer">
+    <h4>PageTransition</h4>
+  </div>
+</div>
+<div data-role="page" id="page2">
+  <div data-role="header" data-add-back-btn="true">
+    <h1>PageTransition</h1>
+  </div>
+  <div data-role="content"> 請返回上一頁 </div>
+  <div data-role="footer">
+    <h4>PageTransition</h4>
+  </div>
+</div>
+</body>
+</html>

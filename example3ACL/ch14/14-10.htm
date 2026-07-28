@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>範例</title>
+	<style>
+		body {font-family:Verdana, Geneva, sans-serif; font-size:11pt;}
+		div {float:left; margin-left:5px; border:solid #000 1px;}
+		#box {background-color:#FF9;height:100px;width:100px;}
+	</style>
+	<script src="http://code.jquery.com/jquery-3.2.0.min.js"></script>
+	<script>
+	$(document).ready(function(){	
+		$('#btnFadeout').click(function(){
+			$('#box').fadeOut(500);
+		});
+		$('#btnFadein').click(function(){
+			$('#box').fadeIn('slow');
+		});
+		$('#btnFadeto').click(function(){
+			$('#box').fadeTo('slow', 0.5);
+		});
+		$('#btnFadeToggle').click(function(){
+			$('#box').fadeToggle('slow');
+		});				
+	});
+	</script>
+</head>
+
+<body>
+<p>
+  <input type="button" id="btnFadein" value="淡入">
+  <input type="button" id="btnFadeout" value="淡出">
+  <input type="button" id="btnFadeto" value="透明">
+  <input type="button" id="btnFadeToggle" value="切換">  
+</p>
+<p>&nbsp; </p>
+<div id="box">Box</div>
+
+</body>
+</html>

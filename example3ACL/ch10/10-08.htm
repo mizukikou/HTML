@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>範例</title>    
+    <style>
+    @keyframes myanimation{
+		0%   {background:red; left:10px; top:10px;}
+		25%  {background:yellow; left:310px; top:10px;}
+		50%  {background:blue; left:310px; top:210px;}
+		75%  {background:green; left:10px; top:210px;}
+		100% {background:red; left:10px; top:10px;}
+    }
+	.box {
+		width: 100px;
+	  	height: 100px;  
+	  	background-color: lightblue;
+	  	border: 1px dotted black; 
+	  	text-align: center;	 
+	  	line-height: 100px; 
+	  	position: absolute;	
+	  	animation: myanimation 4s ease-in-out alternate infinite; 
+	}
+    </style>    
+</head>
+
+<body>
+	<div class="box">BOX</div>
+</body>
+
+</html>

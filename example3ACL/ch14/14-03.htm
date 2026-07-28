@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>範例</title>
+	<style>
+		body {font-family:Verdana, Geneva, sans-serif; font-size:11pt;}
+		div {height:50px;margin-top:5px; border:solid #000 1px;}
+	</style>
+	<script src="http://code.jquery.com/jquery-3.2.0.min.js"></script>
+	<script>
+	$(document).ready(function(){
+		$('#box1').html('<h3>這是有HTML的文字</h3>');
+		$('#box2').text('<h3>這是純文字</h3>');
+	});
+	</script>
+</head>
+
+<body>
+<div id="box1"></div>
+<div id="box2"></div>
+</body>
+</html>

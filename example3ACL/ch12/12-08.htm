@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>範例</title>
+</head>
+
+<body>
+<img src="ACL041000.png" alt="AI2零基礎入門班">
+<img src="ACL041100.png" alt="AI2初學特訓班">
+<img src="ACL041200.png" alt="AI2專題特訓班">
+<script>
+	var findImg = document.getElementsByTagName("img");
+	var msg="";
+	for(var i=0; i<findImg.length; i++){
+		msg += "第"+(i+1)+"本書為："+findImg[i].alt+"\n";
+	}
+	alert(msg);
+</script>
+</body>
+</html>

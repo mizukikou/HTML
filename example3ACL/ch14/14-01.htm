@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>範例</title>
+	<style>
+		body {font-family:Verdana, Geneva, sans-serif; font-size:11pt;}
+		div {float:left; margin-left:5px; border:solid #000 1px;}
+		#box1 {background-color:#CCC;height:100px;width:100px;}
+		#box2 {background-color: #FF9;height: 100px;}
+	</style>
+	<script src="http://code.jquery.com/jquery-3.2.0.min.js"></script>
+	<script>
+	$(document).ready(function(){	
+		alert($('#box1').css('width'));
+		$('#box2').css('width', $('#box1').css('width'));
+	});
+	</script>
+</head>
+
+<body>
+<div id="box1">Box1</div>
+<div id="box2">Box2</div>
+</body>
+</html>

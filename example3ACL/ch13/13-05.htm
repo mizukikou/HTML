@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>範例</title>
+	<style>
+		body {font-family: Verdana, Geneva, sans-serif; font-size: 11pt;}
+		h2 {font-size: 14pt;}
+	</style>
+	<script src="http://code.jquery.com/jquery-3.2.0.min.js"></script>
+	<script>
+	$(document).ready(function(){	
+		$('tr:even').css('background-color','#FF9');
+		$('tr:odd').css('background-color','#CFF');
+		$('tr:first').css('background-color','#FCF');
+	});
+	</script>
+</head>
+
+<body>
+<div id="divA">
+  <h2>認識jQuery</h2>
+  <p>jQuery是目前最受歡迎的 JavaScript 函式庫。</p>
+  <table width="400" border="1">
+    <tr>
+      <td>相關網站</td>
+    </tr>  
+    <tr>
+      <td>官方網站 http://jquery.com/</td>
+    </tr>
+    <tr>
+      <td>下載中心 http://jquery.com/download/</td>
+    </tr>
+    <tr>
+      <td>學習中心http://learn.jquery.com/</td>
+    </tr>
+    <tr>
+      <td>部落格 http://blog.jquery.com/</td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

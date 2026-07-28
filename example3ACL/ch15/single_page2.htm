@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>jQuery Mobile 網路應用程式</title>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+<!--第1頁內容-->
+<div data-role="page" id="page">
+  <div data-role="header">
+    <h1>第 1 頁</h1>
+  </div>
+  <div data-role="content">
+   <ul data-role="listview" data-inset="true">
+   	<li><a href="#page2">第 2 頁</a></li>
+    <li><a href="#page3" data-transition="slide">第 3 頁</a></li>
+    </ul>
+  </div>
+  <div data-role="footer" data-position="fixed">
+    <h4>頁尾</h4>
+  </div>
+</div>
+<!--第2頁內容-->
+<div data-role="page" id="page2" data-theme="c">
+  <div data-role="header" data-add-back-btn="true">
+    <h1>第 2 頁</h1>
+  </div>
+  <div data-role="content"> 內容 </div>
+  <div data-role="footer">
+    <h4>頁尾</h4>
+  </div>
+</div>
+<!--第3頁內容-->
+<div data-role="dialog" id="page3">
+  <div data-role="header">
+    <h1>第 3 頁</h1>
+  </div>
+  <div data-role="content"> 內容 </div>
+  <div data-role="footer">
+    <h4>頁尾</h4>
+  </div>
+</div>
+</body>
+</html>
