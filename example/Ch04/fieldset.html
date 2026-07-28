@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <title>意見調查表</title>
+  </head>
+  <body>    
+    <form>
+	  <fieldset>
+        <legend>個人資料</legend>
+	    <p>姓名：<input type="text" name="userName" size="40"></p>
+        <p>電郵：<input type="text" name="userMail" size="40"></p>
+	    <p>年齡：
+          <input type="radio" name="userAge" value="age1">未滿20歲
+          <input type="radio" name="userAge" value="age2" checked>20~29歲
+          <input type="radio" name="userAge" value="age3">30~39歲
+          <input type="radio" name="userAge" value="age4">40歲以上</p>
+      </fieldset><br>
+      <fieldset>
+        <legend>手機方面的問題</legend>	 
+        <p>您使用過哪些廠牌的手機？（可以複選）
+          <input type="checkbox" name="phone[]" value="HTC" checked>HTC
+          <input type="checkbox" name="phone[]" value="APPLE">APPLE
+          <input type="checkbox" name="phone[]" value="ASUS">ASUS
+          <input type="checkbox" name="phone[]" value="SONY">SONY</p>
+        <p>您使用手機時最常碰到哪些問題？<br>
+		  <textarea name="trouble" cols="40" rows="5" placeholder="例如續航力不佳"></textarea></p>
+        <p>您使用過哪家業者的門號？(可複選)
+          <select name="number[]" size="4" multiple>
+            <option value="中華電信">中華電信</option>
+            <option value="台灣大哥大">台灣大哥大</option>
+            <option value="遠傳" selected>遠傳</option>
+            <option value="台灣之星">台灣之星</option>
+          </select></p>
+	  </fieldset><br>  
+	  <input type="submit" value="提交">
+      <input type="reset" value="重設">
+    </form>
+  </body>
+</html>

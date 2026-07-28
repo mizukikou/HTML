@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+  </head>
+  <body>    
+    <button type="button" id="btn">開啟新文件</button>
+    <script>
+      let btn = document.getElementById('btn');
+      btn.addEventListener('click', function() {
+        // 開啟新的索引標籤
+        let newWin = window.open('', 'newWin');
+        // 在新的索引標籤開啟新文件
+        newWin.document.open('text/html');
+        // 在新文件中顯示此字串
+        newWin.document.write('這是新的HTML文件');
+        // 關閉新文件資料流
+        newWin.document.close();
+      }, false);
+    </script>  
+  </body>
+</html>
