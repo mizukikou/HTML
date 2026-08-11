@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>聯絡我們 - 賽博版</title>
+    <style>
+        body {
+            font-family: "Segoe UI", Roboto, Helvetica, Arial, "Microsoft JhengHei", sans-serif;
+            background-color: #0f172a; 
+            color: #e2e8f0;           
+            line-height: 1.8;
+            padding: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* 📱 頂部導航列：圓角與深色反白樣式，與 about 頁面完美同步 */
+        nav {
+            background-color: #38bdf8; 
+            padding: 12px 24px;
+            border-radius: 30px; /* 膠囊狀圓角 */
+            box-shadow: 0 4px 20px rgba(56, 189, 248, 0.4);
+            display: flex;
+            gap: 5px;
+        }
+        nav a, nav b {
+            text-decoration: none;
+            padding: 6px 14px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        /* 🔄 導航列未選中項目：深色文字（首頁與關於我們） */
+        nav a {
+            color: #0f172a;
+        }
+        nav a:hover {
+            color: #ffffff;
+            background-color: rgba(15, 23, 42, 0.15);
+            border-radius: 20px;
+        }
+
+        /* 💡 精準同步：當前頁面標題（聯絡我們）進行「背景深色、文字白亮」的反白處理 */
+        nav b {
+            color: #ffffff;               /* 文字改為白色 */
+            background-color: #0f172a;    /* 背景反白為深色 */
+            border-radius: 20px;          /* 精緻內扣圓角 */
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); 
+        }
+
+        /* 🎨 第二層最上面大標題：背景反白填滿螢光橘 */
+        h1 {
+            font-family: "Arial Black", Impact, sans-serif; 
+            color: #0f172a;               /* 文字反白成深藍色 */
+            background-color: #f97316;    /* 背景反白填滿螢光橘 */
+            display: inline-block;        /* 讓反白寬度自適應文字長度 */
+            padding: 6px 18px;            /* 反白區塊的精緻內襯留白 */
+            font-weight: 900;
+            border-radius: 4px;           /* 微圓角修飾 */
+            box-shadow: 0 0 20px rgba(249, 115, 22, 0.6); /* 橘色霓虹外發光 */
+            margin-top: 50px;             /* 調整首個大標題與導航列的間距 */
+        }
+
+        /* 🎨 第二層次標題：保持傳統文字發光，不套用背景反白 */
+        h2 {
+            font-family: "Arial Black", Impact, sans-serif; 
+            color: #f97316;               /* 文字維持螢光橘色 */
+            font-weight: 900;
+            text-shadow: 0 0 10px rgba(249, 115, 22, 0.6); /* 霓虹文字發光 */
+            margin-top: 80px; 
+            border-bottom: 2px dashed #334155; /* 加上精緻虛線襯托底邊 */
+            padding-bottom: 10px;
+            display: block;               
+        }
+
+        ul {
+            background-color: #1e293b;
+            list-style: none;
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid #334155;
+            margin-top: 25px;
+        }
+        li {
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        li b {
+            color: #fbbf24;
+        }
+
+        /* ❤️ 心跳容器外框 */
+        .heart-container {
+            background-color: #1e293b; 
+            width: 130px;
+            height: 130px;
+            padding: 15px;
+            border-radius: 16px;
+            border: 2px solid #f43f5e; 
+            box-shadow: 0 8px 24px rgba(244, 63, 94, 0.4); 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 25px;
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            20% { transform: scale(1.12); }
+            40% { transform: scale(1); }
+            60% { transform: scale(1.12); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. 頂部導航列（聯絡我們已反白選取） -->
+    <nav>
+        <a href="../index.html">首頁</a> 
+        <a href="./about.html">關於我們</a> 
+        <b>聯絡我們</b>
+    </nav>
+
+    <!-- 2. 最上面的反白樣式大標題 -->
+    <h1>聯絡我們</h1>
+    <p style="margin-top: 15px;">這裡同樣是第二層的極光世界。標題字型與第一層有著截然不同的幾何粗獷感，且高度被導航列與留白往下推移。</p>
+    
+    <!-- 3. 聯絡資訊列表 -->
+    <ul>
+        <li><b>電子郵件：</b> <span style="color: #38bdf8;">test@example.com</span></li>
+        <li><b>LINE ID：</b> <span style="color: #38bdf8;">myhtmlwebsite</span></li>
+    </ul>
+
+    <!-- 4. 次標題 -->
+    <h2>專屬視覺</h2>
+
+    <!-- 5. 內嵌式的 SVG 霓虹心跳圖案，解決破圖問題 -->
+    <div class="heart-container">
+        <svg xmlns="http://w3.org" viewBox="0 0 100 100" width="100%" height="100%">
+            <defs>
+                <filter id="heartGlow" x="-20%" y="-20%" width="140%" height="140%">
+                    <feGaussianBlur stdDeviation="2" result="blur" />
+                    <feMerge>
+                        <feMergeNode in="blur" />
+                        <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                </filter>
+            </defs>
+            <!-- 飽滿的發光漸層紅心 -->
+            <path d="M 50,35 
+                     C 50,35 38,18 22,25 
+                     C 6,32 6,55 25,70 
+                     L 50,90 
+                     L 75,70 
+                     C 94,55 94,32 78,25 
+                     C 62,18 50,35 50,35 Z" 
+                  fill="#f43f5e" 
+                  stroke="#fda4af" 
+                  stroke-width="2"
+                  filter="url(#heartGlow)"/>
+            <!-- 愛心高光點 -->
+            <path d="M 25,35 A 8,8 0 0 1 35,28" stroke="#ffffff" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.6"/>
+        </svg>
+    </div>
+
+</body>
+</html>
