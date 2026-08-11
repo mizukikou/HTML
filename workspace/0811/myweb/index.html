@@ -1,122 +1,163 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <style>
-      * {
-        margin: 0;   
-        padding: 0;
-        box-sizing: border-box; /* 防止寬度被 border 或 padding 撐破 */
-      }
+<head>
+<meta charset="utf-8">
+<style>
+  /* 1. 防跑版全域重設 */
+  * { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+  }
+
+  /* 2. 根節點 html 決定大背景色與高度 */
+  html {
+    height: 100%;
+    background-color: #222222; /* 設更深的顏色當大背景，才能看出中間 960px 的範圍 */
+  }
+
+  /* 3. 完美合體的 body 設定 */
+  body { 
+    width: 100%; 
+    min-width: 600px; 
+    max-width: 960px; 
+    margin: 0 auto; 
+    
+    display: flex; 
+    flex-direction: column; /* 讓內容由上往下排 */
+    
+    min-height: 100%;       /* ✨ 關鍵修正：讓 body 至少跟螢幕一樣高 */
+    background-color: #333333; /* 網頁主體的深灰色 */
+  }
+
+  header { 
+    width: 100%; 
+    background: #eaeaea; 
+    padding: 20px; /* 增加一點內距比較好看 */
+    color: #222;
+  }
+
+  nav { 
+    width: 100%; 
+    background: rgb(26, 14, 14); 
+    color: white; 
+    padding: 10px 0;
+  }
+
+  /* 💡 核心修正：讓中間的這個大外殼去吃掉螢幕所有剩餘的高度 */
+  .container { 
+    display: flex; /* 讓內部的 main 與 aside 左右並排 */
+    width: 100%;
+    flex: 1;       /* ✨ 魔術行：強迫整個中段自動垂直拉伸，把 footer 推到最下面 */
+  }
+
+  /* main 專心管寬度和自己的背景即可 */
+  main { 
+    width: 70%; 
+    background: skyblue; 
+    padding: 20px; /* 增加內距 */
+  }
+
+  /* aside 也會因為 Flexbox 特性自動跟 main 一樣高 */
+  aside { 
+    width: 30%; 
+    background: pink; 
+    padding: 20px; /* 增加內距 */
+  }
+
+  /* 讓內文的文章區塊有白底，在天藍色背景上才看得清楚 */
+  article, section { 
+    width: 100%; 
+    background: #ffffff; 
+    margin-bottom: 15px; 
+    padding: 15px;
+    border-radius: 4px; /* 加點微圓角 */
+    color: #333333;
+  }
+
+  footer { 
+    width: 100%; 
+    background: #eaeaea; 
+    padding: 20px;
+    text-align: center;
+    color: #333;
+    /*margin-top: auto; */ /* 💡 關鍵：自動把 footer 推到最下方 */
+  }
+
+  nav ul { 
+    text-align: center; 
+  }
+
+  nav ul li { 
+    display: inline; 
+    margin: 0 15px; /* 讓選單字體分開一點 */
+  }
+
+  nav ul li a { 
+    color: white; 
+    text-decoration: none; 
+  }
+</style>
+</head>
+<body>
+
+  <header>
+    <h1>手機王</h1>
+    <p>找手機、修手機、賣手機，手機專家就在這裡！</p>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a style="color:chocolate">首頁</a></li>
+      <li><a href="products.html">產品型錄</a></li>
+      <li><a href="stores.html">銷售門市</a></li>
+      <li><a href="about.html">關於我們</a></li>
+    </ul>
+  </nav>
+
+  <!-- 中間並排外殼 -->
+  <div class="container">
+    
+    <main>
+      <article>
+        <h1>翠玉白菜</h1>
+        <p>《翠玉白菜》是故宮博物院珍藏的玉器雕刻，長18.7公分，寬9.1公分，厚5.07公分，與「毛公鼎」、「肉形石」並列合稱「故宮三寶」。</p>
+      </article>
       
-      /* 讓 html 和 body 100% 滿版，並宣告為 flex 垂直排列 */
-      html, body {
-        height: 100%;
-      }
-      body {
-        width: 100%; 
-        min-width: 600px; 
-        max-width: 960px; 
-        margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-      }
+      <article>
+        <h1>肉形石</h1>
+        <p>《肉形石》是故宮博物院珍藏的國寶之一，原是清朝的宮廷珍玩，工匠將一塊自然生成的瑪瑙表面染色，製作成層次分明、毛孔肌理逼真的藝品，高6.6公分，長7.9公分，遠遠望去外觀就像一塊東坡肉，因而稱為肉形石。</p>
+      </article>
+
+      <!-- 💡 移到這裡：把關於我們也塞進 main 裡面，維持版型整齊 -->
+      <section>
+        <h2>關於我們</h2>
+        <p>我們是一家專注於網頁前端技術教學的團隊，致力於推廣 HTML5 語意化標籤。</p>
+        <p>透過結構化的網頁設計，讓每個人都能寫出對搜尋引擎友善的優質網站。</p>
+      </section>
+    </main>
+
+    <aside>
+      <section>
+        <p><strong>您可能會有興趣的文章</strong></p>
+        <br>
+        <ul>
+          <li><a href="article1.html">文章1</a></li>
+          <li><a href="article2.html">文章2</a></li>
+        </ul>
+      </section>
       
-      header { width: 100%; background: #eaeaea; }
-       nav    { width: 100%; background:  rgb(26, 14, 14); color: white; }  
+      <section>
+        <p><strong>贊助廠商</strong></p>
+      </section>
+    </aside>
 
-      /* 💡 新增：讓中間的 main 與 aside 順利並排的外殼 */
-      .container {
-        display: flex;  /* 關鍵：讓內部的 main 與 aside 左右並排 */
-        width: 100%;
-      }
+  </div> <!-- .container 結束 -->
 
-      /* 調整寬度，移除原本的 min-height，Flexbox 會自動讓兩欄等高 */
-      main {
-        width: 70%;  
-        background: skyblue; 
-      }
-      
-      aside {
-        width: 30%;  
-        background: pink;    
-      }
+  <footer>
+    <p>&copy; 2025快樂通訊公司</p>
+    <p><a href="#">Back to top</a></p>
+  </footer>
 
-      section { width: 100%; background: #eaeaea; margin-bottom: 10px; }
-      article { width: 100%; background: #eaeaea; margin-bottom: 10px; }
-      
-      footer {
-        width: 100%; 
-        background: #eaeaea; 
-        margin-top: auto; /* 💡 關鍵：自動把 footer 推到最下方 */
-      }
-      
-      nav ul {
-        text-align: center;
-      }    
-      nav ul li {
-        display: inline;
-      }
-      /* 超連結標籤 <a> 擁有瀏覽器內建的預設樣式（通常是藍色字加底線）。如果只把顏色寫在最外層的 nav，這個顏色是無法直接覆蓋掉 <a> 標籤的預設顏色的。 */
-      nav ul li a {
-        color: white;           /* 轉為白色 */
-        text-decoration: none;  /* 移除預設的藍色底線 */
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <h1>手機王</h1>
-      <p>找手機、修手機、賣手機，手機專家就在這裡！</p>
-    </header>
-
-    <nav>
-	    <ul>
-	      <li><a style="color:chocolate">首頁</a></li>
-        <li><a href="products.html">產品型錄</a></li>
-        <li><a href="stores.html">銷售門市</a></li>
-        <li><a href="about.html">關於我們</a></li>
-	    </ul>
-	  </nav>
-
-    <!-- 💡 步驟 1：用 .container 標籤把 main 和 aside 包裹起來 -->
-    <div class="container">
-      <main>
-        <article>
-          <h1>翠玉白菜</h1>
-          <p>《翠玉白菜》是故宮博物院珍藏的玉器雕刻，長18.7公分，寬9.1公分，厚5.07公分，與「毛公鼎」、「肉形石」並列合稱「故宮三寶」。</p>
-        </article>
-        <article>
-          <h1>肉形石</h1>
-          <p>《肉形石》是故宮博物院珍藏的國寶之一，原是清朝的宮廷珍玩，工匠將一塊自然生成的瑪瑙表面染色，製作成層次分明、毛孔肌理逼真
-的藝品，高6.6公分，長7.9公分，遠遠望去外觀就像一塊東坡肉，因而稱為肉形石。</p>
-        </article>
-      </main>
-
-      <aside>
-        <section>
-          <p>您可能會有興趣的文章</p>
-          <ul>
-            <li><a href="article1.html">文章1</a></li>
-            <li><a href="article2.html">文章2</a></li>
-          </ul>
-        </section>
-        <section>
-          <p>贊助廠商</p>
-        </section>
-      </aside>
-    </div> <!-- 💡 步驟 2：在這裡加上結束標籤 -->
-
-    <section>
-      <h2>關於我們</h2>
-      <p>我們是一家專注於網頁前端技術教學的團隊，致力於推廣 HTML5 語意化標籤。</p>
-      <p>透過結構化的網頁設計，讓每個人都能寫出對搜尋引擎友善的優質網站。</p>
-    </section>
-
-    <footer>
-      <p>&copy; 2025快樂通訊公司</p>
-      <p><a href="#">Back to top</a></p>
-    </footer>
-
-  </body>
+</body>
 </html>
