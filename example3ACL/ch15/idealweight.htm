@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>理想體重計算機</title>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<script>
+$(document).ready(function(){
+	$("#button1").click(function(){
+/*		var msg='您好，我叫'+$("#inputName").val()+"\n";
+		msg += '身高'+$("#inputHeight").val()+"公分，\n";
+		msg += '體重'+$("#inputWeight").val()+"公斤，\n";		
+		msg += '今年'+$("#inputAge").val()+"歲。\n";*/
+		var msg1 = $('input:radio[name=iGender]:checked').val();
+		var msg2 = $('#idealRange option:selected').val();
+		
+		//var msg3 = $('input[type="checkbox"]:checked').val();
+		var msg3 = '';
+		$('input[type="checkbox"]:checked').each(function(){
+			msg3 += $(this).val() + ' ';
+		});
+		
+		var msg4 = $("input[type='range']").val();
+		alert(msg4);
+	});
+});
+</script>
+</head>
+<body>
+<div data-role="page" id="page">
+  <div data-role="header" data-position="fixed">
+    <h1>理想體重計算機</h1>
+  </div>
+  <div data-role="content">
+    <form>
+    <label for="iName">姓名:</label>
+    <input type="text" name="iName" id="iName" required />    
+    <fieldset data-role="controlgroup">
+        <legend>性別:</legend>
+        <input type="radio" name="iGender" id="male" value="男" checked="">
+        <label for="male">男</label>
+        <input type="radio" name="iGender" id="female" value="女">
+        <label for="female">女</label>
+    </fieldset>
+    <label for="iHeight">身高:</label>
+    <input type="range" name="iHeight" id="iHeight" value="70" min="40" max="150" data-highlight="true">    
+    <label for="idealRange">顯示標準體重範圍:</label>
+    <select name="idealRange" id="idealRange" data-role="slider">
+      <option value="off">Off</option>
+      <option value="on" selected="">On</option>
+    </select>
+    <fieldset data-role="controlgroup">
+        <legend>選擇設備(可多選):</legend>
+        <input type="checkbox" name="checkbox-1" id="checkbox-1" value="設備1" checked="">
+        <label for="checkbox-1">設備1</label>
+        <input type="checkbox" name="checkbox-2" id="checkbox-2" value="設備2">
+        <label for="checkbox-2">設備2</label>
+        <input type="checkbox" name="checkbox-3" id="checkbox-3" value="設備3">
+        <label for="checkbox-3">設備3</label>
+    </fieldset> 
+    <label for="slider-fill">一般滑桿設定填滿並增量值:</label>
+    <input type="range" name="slider-fill" id="slider-fill" value="60" min="0" max="100" data-highlight="true">       
+    <a href="#" data-role="button" id="button1">顯示自我介紹</a>
+    </form>
+  </div>
+  <div data-role="footer" data-position="fixed">
+    <h4>jQuery Mobile</h4>
+  </div>
+</div>
+</body>
+</html>

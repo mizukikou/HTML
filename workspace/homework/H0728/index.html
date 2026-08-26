@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的第一個網站 - 首頁</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Microsoft JhengHei", sans-serif;
+            background-color: #f4f7f6; 
+            color: #333333;           
+            line-height: 1.6;          
+            padding: 20px;
+            max-width: 800px;          
+            margin: 0 auto;            
+        }
+        nav {
+            background-color: #1e293b; 
+            padding: 12px;
+            border-radius: 6px;        
+        }
+        nav a, nav b {
+            color: #ffffff;            
+            text-decoration: none;     
+            margin: 0 10px;
+            font-size: 16px;
+        }
+        nav a:hover {
+            color: #38bdf8;            
+            text-decoration: underline;
+        }
+
+        /* 第一層標題 */
+        h1, h2 {
+            font-family: "Times New Roman", "Georgia", "PMingLiU", "Songti TC", serif; 
+            color: #1e3a8a; 
+            font-weight: 700;
+            letter-spacing: 2px; 
+            margin-top: 30px; 
+        }
+        h1 {
+            border-bottom: 3px double #1e3a8a; 
+            padding-bottom: 10px;
+        }
+
+        /* 🚀 太空動畫視窗 */
+        .animation-window {
+            width: 100%;
+            max-width: 500px; 
+            height: 350px; 
+            border-radius: 12px;
+            border: 2px solid #1e3a8a; 
+            box-shadow: 0 8px 24px rgba(30, 58, 138, 0.2);
+            position: relative;
+            overflow: hidden; 
+            margin-top: 25px;
+            background: linear-gradient(to bottom, #02040a, #081026); 
+        }
+
+        /* 🌌 10倍密集繁星背景 */
+        .starfield {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            background: transparent;
+            box-shadow: 
+                40px 30px #fff, 120px 80px #e2e8f0, 200px 40px #fff, 290px 110px #fed7aa, 380px 50px #fff,
+                70px 220px #fff, 150px 180px #38bdf8, 230px 280px #fff, 310px 210px #fff, 450px 90px #fff,
+                20px 140px #fff, 95px 310px #e2e8f0, 165px 120px #fff, 275px 45px #fff, 340px 320px #fff,
+                110px 15px #fff, 190px 240px #fed7aa, 255px 165px #fff, 410px 260px #fff, 480px 130px #fff,
+                35px 95px #fff, 85px 55px #fff, 140px 290px #fff, 215px 145px #fff, 305px 75px #38bdf8,
+                55px 175px #fff, 130px 70px #fff, 245px 335px #fff, 325px 155px #fff, 465px 215px #fff,
+                15px 265px #fff, 75px 115px #e2e8f0, 175px 205px #fff, 285px 275px #fff, 365px 45px #fff,
+                65px 45px #fff, 185px 95px #fff, 225px 225px #fff, 395px 175px #fff, 435px 315px #fff,
+                50px 340px #fff, 105px 200px #fff, 160px 55px #fff, 250px 90px #fff, 330px 240px #fff,
+                295px 180px #fff, 375px 120px #fff, 420px 25px #fff, 135px 145px #fff, 220px 305px #fff;
+        }
+
+        /* ✨ 擴充增加 3 倍：10 顆十字光芒亮星的通用樣式 */
+        .cross-star {
+            position: absolute;
+            z-index: 1;
+        }
+        .cross-star::before {
+            content: ""; position: absolute; width: 3px; height: 3px; background: #ffffff; border-radius: 50%; box-shadow: 0 0 8px #fff;
+        }
+        .cross-star::after {
+            content: ""; position: absolute; left: -10px; top: 1px; width: 23px; height: 1px; 
+            background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,1) 50%, rgba(255,255,255,0) 100%);
+        }
+        .star-v-line {
+            position: absolute; left: 1px; top: -10px; width: 1px; height: 23px; 
+            background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,1) 50%, rgba(255,255,255,0) 100%);
+        }
+
+        /* 🪐 10顆十字星芒的定位座標 */
+        .cs1 { left: 140px; top: 50px; }
+        .cs2 { left: 320px; top: 180px; }
+        .cs3 { left: 210px; top: 260px; }
+        .cs4 { left: 50px; top: 110px; }
+        .cs5 { left: 260px; top: 90px; }
+        .cs6 { left: 410px; top: 60px; }
+        .cs7 { left: 380px; top: 270px; }
+        .cs8 { left: 110px; top: 190px; }
+        .cs9 { left: 290px; top: 20px; }
+        .cs10 { left: 460px; top: 220px; }
+
+        /* 🌍 破碎群島版地球 */
+        .earth {
+            position: absolute;
+            bottom: -50px; 
+            left: -50px; 
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 70% 30%, #3b82f6 0%, #1d4ed8 70%, #1e3a8a 100%);
+            box-shadow: 0 0 30px rgba(56, 189, 248, 0.5), inset -20px 20px 30px rgba(255, 255, 255, 0.1); 
+            overflow: hidden; 
+            z-index: 1;
+        }
+        .land-chunk-1 {
+            position: absolute;
+            background-color: #22c55e;
+            width: 50px;
+            height: 45px;
+            top: 40px;
+            right: 40px;
+            clip-path: polygon(25% 0%, 75% 20%, 100% 60%, 55% 100%, 0% 70%, 15% 30%);
+        }
+        .land-chunk-2 {
+            position: absolute;
+            background-color: #4ade80;
+            width: 35px;
+            height: 30px;
+            bottom: 50px;
+            left: 50px;
+            clip-path: polygon(40% 0%, 90% 40%, 60% 100%, 0% 60%);
+        }
+        .land-chunk-3 {
+            position: absolute;
+            background-color: #16a34a;
+            width: 25px;
+            height: 20px;
+            top: 30px;
+            left: 70px;
+            clip-path: polygon(50% 0%, 100% 50%, 70% 100%, 10% 80%, 0% 30%);
+        }
+        .earth-cloud {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.45);
+            width: 120px;
+            height: 25px;
+            top: 45px;
+            left: 20px;
+            border-radius: 20px;
+            filter: blur(1px); 
+            transform: rotate(-15deg); 
+        }
+        .earth-cloud-2 {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.35);
+            width: 80px;
+            height: 20px;
+            bottom: 50px;
+            right: 15px;
+            border-radius: 20px;
+            filter: blur(1.5px);
+            transform: rotate(10deg);
+        }
+
+        /* ☀️ 烈焰大太陽（置於右側中間）- 已完美加回！ */
+        .sun {
+            position: absolute;
+            top: 50%;
+            right: 35px; 
+            transform: translateY(-50%); 
+            width: 75px;  
+            height: 75px; 
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, #ffffff 0%, #fef08a 35%, #f97316 75%, #ea580c 100%);
+            box-shadow: 0 0 30px rgba(249, 115, 22, 0.9), 0 0 50px rgba(234, 88, 12, 0.5);
+            z-index: 2;
+        }
+        .sun::before, .sun::after {
+            content: ""; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            background: linear-gradient(to right, rgba(249,115,22,0) 0%, rgba(254,240,138,0.8) 50%, rgba(249,115,22,0) 100%);
+            border-radius: 50%; z-index: -1;
+        }
+        .sun::before { width: 160px; height: 8px; filter: blur(1px); }
+        .sun::after { width: 8px; height: 160px; background: linear-gradient(to bottom, rgba(249,115,22,0) 0%, rgba(254,240,138,0.8) 50%, rgba(249,115,22,0) 100%); filter: blur(1px); }
+
+        /* 🚀 火箭元素 */
+        .rocket {
+            font-size: 45px;
+            position: absolute;
+            z-index: 3; 
+            left: 40px;
+            bottom: 40px;
+            animation: diagonalLaunch 4s linear infinite;
+        }
+
+        /* 平滑動畫軌跡 */
+        @keyframes diagonalLaunch {
+            0% { transform: translate(0, 0) scale(1); opacity: 0; }
+            10% { transform: translate(35px, -29px) scale(0.91); opacity: 1; }
+            30% { transform: translate(105px, -87px) scale(0.73); opacity: 1; }
+            60% { transform: translate(210px, -174px) scale(0.46); opacity: 1; }
+            90% { transform: translate(315px, -261px) scale(0.19); opacity: 1; }
+            100% { transform: translate(350px, -290px) scale(0.1); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <b>首頁</b> 
+        <a href="pages/about.html">關於我們</a> 
+        <a href="pages/contact.html">聯絡我們</a>
+    </nav>
+
+    <h1>歡迎來到我的網站！</h1>
+    <p>第一層採用明亮清新背景，搭配古典襯線字體（明體）的標題。</p>
+    
+    <h2>首頁主打動態：星際航行日記</h2>
+    
+    <!-- 🎬 終極修復：十倍繁星、10顆十字亮星、太陽回歸版視窗 -->
+    <div class="animation-window">
+        <!-- 🚀 火箭 -->
+        <div class="rocket">🚀</div>
+        
+        <!-- 🌌 大量背景繁星 -->
+        <div class="starfield"></div>
+        
+        <!-- ✨ 增加 3 倍：10 顆帶有白色十字光芒的璀璨亮星 -->
+        <div class="cross-star cs1"><div class="star-v-line"></div></div>
+        <div class="cross-star cs2"><div class="star-v-line"></div></div>
+        <div class="cross-star cs3"><div class="star-v-line"></div></div>
+        <div class="cross-star cs4"><div class="star-v-line"></div></div>
+        <div class="cross-star cs5"><div class="star-v-line"></div></div>
+        <div class="cross-star cs6"><div class="star-v-line"></div></div>
+        <div class="cross-star cs7"><div class="star-v-line"></div></div>
+        <div class="cross-star cs8"><div class="star-v-line"></div></div>
+        <div class="cross-star cs9"><div class="star-v-line"></div></div>
+        <div class="cross-star cs10"><div class="star-v-line"></div></div>
+        
+        <!-- 🌍 破碎島嶼與白雲地球 -->
+        <div class="earth">
+            <div class="land-chunk-1"></div>
+            <div class="land-chunk-2"></div>
+            <div class="land-chunk-3"></div>
+            <div class="earth-cloud"></div>
+            <div class="earth-cloud-2"></div>
+        </div>
+        
+        <!-- ☀️ 太陽成功回歸！置於右側中間 -->
+        <div class="sun"></div>
+    </div>
+
+</body>
+</html>

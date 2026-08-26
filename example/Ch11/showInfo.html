@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>我的網頁</title>
+  </head>
+  <body>
+    <div id="info"></div>
+    <script>
+      let info = document.getElementById('info');
+      info.innerHTML = '網頁標題：' + document.title + '<br>'
+                     + '網頁URL：' + document.URL + '<br>'
+                     + '網頁最後修改日期：' + document.lastModified;
+    </script>
+  </body>
+</html>

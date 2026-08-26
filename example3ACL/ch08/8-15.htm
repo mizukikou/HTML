@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>範例</title>
+    <style>
+    div {
+        width: 500px; height: 90px;
+        font-size: 15pt; color: white;
+        text-align: center; line-height: 100px; margin: 5px auto;
+    }
+    .radial1{
+        background: radial-gradient(closest-side at 60% 50%, red, yellow, green);
+    }
+    .radial2{
+        background: radial-gradient(farthest-side at 60% 50%, red, yellow, green);
+    } 
+    .radial3{
+        background: radial-gradient(closest-corner at 60% 50%, red, yellow, green);
+    }
+    .radial4{
+        background: radial-gradient(farthest-corner at 60% 50%, red, yellow, green);
+    } 
+    </style>
+</head>
+
+<body>
+    <div class="radial1">Closest-side</div>
+    <div class="radial2">Farthest-side</div>
+    <div class="radial3">Closest-corner</div>
+    <div class="radial4">Farthest-corner</div>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>範例</title>
+</head>
+
+<body>
+<script>
+function Person(name, age, weight, height){
+	this.name = name;
+	this.age = age;
+	this.weight = weight;
+	this.height = height;
+	this.sayHello = function(){
+		return "您好，我是"+name +"，今年"+age+ "歲，身高"+height+"公分，體重"+weight+"公斤。";
+	}
+};
+person1 = new Person("David", 25, 75, 180);	
+person2 = new Person("Ken", 20, 65, 175);	
+document.write(person1.sayHello() + "<br/>"+ person2.sayHello());
+</script>
+</body>
+</html>

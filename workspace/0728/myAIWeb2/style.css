@@ -1,0 +1,122 @@
+:root {
+  --primary-color: #8b0000; /* 經典義式深紅 */
+  --secondary-color: #2e5a44; /* 橄欖綠 */
+  --accent-color: #d4af37; /* 質感金色 */
+  --bg-light: #fdfbf7; /* 溫暖奶油白背景 */
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--bg-light);
+  color: #333;
+}
+
+/* 導覽列風格 */
+.navbar {
+  background-color: rgba(20, 20, 20, 0.95);
+  backdrop-filter: blur(5px);
+}
+.navbar-brand {
+  font-family: "Georgia", serif;
+  font-weight: bold;
+  color: var(--accent-color) !important;
+  font-size: 1.6rem;
+}
+.nav-link {
+  color: #fff !important;
+  transition: color 0.3s ease;
+}
+.nav-link:hover, .nav-link.active {
+  color: var(--accent-color) !important;
+}
+
+/* Hero Banner 區塊 (用於首頁) */
+.hero-section {
+  background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), 
+              url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+  height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 56px;
+}
+.hero-title {
+  font-family: "Georgia", serif;
+  font-size: 3.5rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+/* 頁面頂部 Header (用於各內頁) */
+.page-header {
+  background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), 
+              url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+  padding: 100px 0 50px 0;
+  color: #fff;
+  text-align: center;
+}
+
+/* 區塊標題 */
+.section-title {
+  font-family: "Georgia", serif;
+  color: var(--primary-color);
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+.section-subtitle {
+  color: #666;
+  margin-bottom: 2.5rem;
+}
+
+/* 菜單卡片樣式 */
+.menu-card {
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #fff;
+}
+.menu-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+.menu-card img {
+  height: 200px;
+  object-fit: cover;
+}
+.price-tag {
+  color: var(--primary-color);
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+/* 訂位容器樣式 */
+.booking-section {
+  background-color: #f4ede2;
+  border-radius: 16px;
+}
+
+/* 頁尾 */
+footer {
+  background-color: #1a1a1a;
+  color: #ccc;
+}
+footer a {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+/* 按鈕樣式 */
+.btn-custom {
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.8rem;
+  border-radius: 30px;
+  transition: background-color 0.3s ease;
+}
+.btn-custom:hover {
+  background-color: #6b0000;
+  color: #fff;
+}

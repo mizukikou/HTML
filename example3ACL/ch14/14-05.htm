@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>範例</title>
+	<script src="http://code.jquery.com/jquery-3.2.0.min.js"></script>
+	<script>
+	$(document).ready(function(){
+		$('#btn1').click(function(){
+			alert('你按到 '+$('#btn1').attr('value')+' 了!');
+		})
+		$('#btn2').click(function(){
+			alert('你按到 '+$('#btn2').attr('value')+' 了!');
+		})
+	});
+	</script>
+</head>
+
+<body>
+<input type="button" id="btn1" value="按鈕1">
+<input type="button" id="btn2" value="按鈕2">
+</body>
+</html>

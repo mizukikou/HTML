@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>範例</title>
+	<style>
+		body {font-family: Verdana, Geneva, sans-serif; font-size: 11pt;}
+		div {padding: 5px; float: left; height: 150px; width: 200px; margin-right: 5px;}
+		h2 {font-size: 14pt;}
+		.fontRed {color: #F00;}
+		.listUrl {list-style-type: circle;}
+	</style>
+	<script src="http://code.jquery.com/jquery-3.2.0.min.js"></script>
+	<script>
+	$(document).ready(function(){
+		$("div").css("border","1px solid #000");
+		$("#part1").css("background-color","#CCC");
+		$(".fontRed").css("font-weight","bolder");
+	});
+	</script>
+</head>
+
+<body>
+<div id="part1">
+  <h2>認識jQuery</h2>
+  <p><span class="fontRed">jQuery</span>是目前最受歡迎的 JavaScript 函式庫。</p>
+</div>
+<div id="part2">
+  <h2>相關網址</h2>
+  <ul class="listUrl">
+    <li><a href="http://jquery.com/">jQuery官方網站</a></li>
+    <li><a href="http://jquery.com/download/">jQuery下載</a></li>
+    <li><a href="http://learn.jquery.com/">jQuery學習中心</a></li>
+    <li><a href="http://blog.jquery.com/">jQuery部落格</a></li>
+  </ul>
+</div>
+</body>
+</html>

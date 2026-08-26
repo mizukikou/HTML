@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>jQuery Mobile 網路應用程式</title>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+<div data-role="page" id="page">
+	<div id="panelOverlay" data-role="panel" data-position="left" data-display="overlay" data-dismissible="false">
+		<h3>Overlay</h3>
+		<p><a href="#" data-role="button" data-rel="close">Close</a></p>
+	</div>
+	<div id="panelReveal" data-role="panel" data-position="right" data-display="reveal" data-theme="b">
+		<h3>Reveal</h3>
+		<p><a href="#" data-role="button" data-rel="close">Close</a></p>
+	</div>
+	<div id="panelPush" data-role="panel" data-position="left" data-display="push">
+		<h3>Push</h3>
+		<p><a href="#" data-role="button" data-rel="close">Close</a></p>
+	</div>
+	<div data-role="header">
+		<h1>Panel</h1>
+	</div>
+	<div data-role="content">
+		<a href="#panelOverlay" data-role="button" data-inline="true">Overlay</a>
+		<a href="#panelReveal" data-role="button" data-inline="true">Reveal</a>
+		<a href="#panelPush" data-role="button" data-inline="true">Push</a>
+	</div>
+	<div data-role="footer">
+		<h4>jQuery Mobile</h4>
+	</div>
+</div>
+</body>
+</html>

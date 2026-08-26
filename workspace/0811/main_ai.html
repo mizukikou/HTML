@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <title>HTML5 完整語意標籤範例</title>
+  <style>
+    /* 這裡可以放入您之前的 style.css 排版樣式 */
+    body { background: rgb(223, 224, 114); margin: 0; padding: 0; font-family: sans-serif; }
+    header, nav, footer { width: 100%; background: #fff; border-bottom: 1px solid #ccc; padding: 1em; box-sizing: border-box; }
+    .container { display: flex; }
+    main { flex: 3; padding: 1em; }
+    aside { flex: 1; padding: 1em; background: #f9f9f9; border-left: 1px solid #ccc; }
+    article { background: #fff; border: 1px solid #ccc; padding: 1.5em; margin-bottom: 1em; }
+    section { margin-top: 1.5em; border-top: 1px dashed #bbb; padding-top: 1em; }
+  </style>
+</head>
+<body>
+
+  <!-- 1. 頁首區塊 -->
+  <header>
+    <h1>技術學習日誌</h1>
+  </header>
+
+  <!-- 2. 導覽列區塊：放置網頁主要選單 -->
+  <nav>
+    <a href="#home">首頁</a> | 
+    <a href="#blog">技術文章</a> | 
+    <a href="#about">關於我</a>
+  </nav>
+
+  <!-- 網頁主體容器（用來做 Flexbox 左右排版） -->
+  <!-- <div class="container"> -->
+    
+    <!-- 3. 主要內容區：放網頁的核心資訊 -->
+    <main>
+      
+      <!-- 4. 獨立文章區塊一：這是一篇完整的部落格文章，可以單獨被閱讀或轉發 -->
+      <article>
+        <h2>學習 HTML5 語意標籤的心得</h2>
+        <p>發表日期：2026年8月11日</p>
+        <p>今天練習了網頁的結構化。以前都用 div 加上 class，現在改成語意標籤後，程式碼看起來乾淨多了，對 SEO 搜尋引擎也很有幫助。</p>
+        
+        <!-- 文章內部的章節一 -->
+        <section>
+          <h3>為什麼要用 article？</h3>
+          <p>因為這是一篇獨立的文章。就算把它從這個網頁複製到別的網站，大家依然看得懂它的內容。</p>
+        </section>
+
+        <!-- 文章內部的章節二 -->
+        <section>
+          <h3>學習小結</h3>
+          <p>多練習幾次就能分清楚 section 和 article 的差別了！</p>
+        </section>
+      </article>
+
+      <!-- 獨立文章區塊二：另一篇獨立的技術文章 -->
+      <article>
+        <h2>CSS 盒子模型簡介</h2>
+        <p>發表日期：2026年8月10日</p>
+        <p>盒子模型由外而內分別是：Margin、Border、Padding、Content。搞懂這四個屬性，切版就不會再跑版了。</p>
+      </article>
+
+    </main>
+
+    <!-- 5. 側邊欄區塊：放與主要文章間接相關的附加資訊 -->
+    <aside>
+      <h2>關於作者</h2>
+      <p>哈囉！我是一個正在努力學習網頁前端技術的初心者。</p>
+      
+      <h3>熱門文章</h3>
+      <ul>
+        <li><a href="#">什麼是 CSS?</a></li>
+        <li><a href="#">3分鐘學會 Flexbox</a></li>
+      </ul>
+    </aside>
+
+  <!-- </div> -->
+
+  <!-- 6. 頁尾區塊 -->
+  <footer>
+    <p>&copy; 2026 學習筆記版權所有</p>
+  </footer>
+
+</body>
+</html>

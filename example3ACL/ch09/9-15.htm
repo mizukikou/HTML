@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>範例</title>    
+    <style>
+    @media screen and (min-width: 320px){
+        #container{
+           width: 800px; height: 300px;
+           padding: 0px;
+           margin: 10px auto; 
+        }        
+        #header{
+            height: 50px;
+            color: white;
+            background-color: darkgray;
+            font-size: 24px; text-align: center;
+            line-height: 50px;
+        }
+        #main {
+            width:60%; height: 100%;
+            color: white;
+            background-color: lightgray;
+            font-size: 24px; text-align: center;
+            line-height: 300px;
+            float: left;
+        }
+        #sidebar{
+            width:40%; height: 100%;
+            color: gray;
+            background-color: whitesmoke;
+            font-size: 24px; text-align: center;
+            line-height: 300px;
+            float: left;
+        }
+        #footer{
+            height: 50px;            
+            color: white;
+            background-color: darkgray;
+            font-size: 24px; text-align: center;
+            line-height: 50px;        
+            clear: both;
+        }        
+    }
+    @media screen and (max-width: 319px){
+        #container{
+           width: 300px;
+           padding: 0px;
+           margin: 10px auto; 
+        }        
+        #header{
+            height: 50px;
+            color: white;
+            background-color: darkgray;
+            font-size: 24px; text-align: center;
+            line-height: 50px;
+        }
+        #main {
+            height: 150px;
+            color: white;
+            background-color: lightgray;
+            font-size: 24px; text-align: center;
+            line-height: 150px;
+        }
+        #sidebar{
+            height: 150px;
+            color: gray;
+            background-color: whitesmoke;
+            font-size: 24px; text-align: center;
+            line-height: 150px;
+        }
+        #footer{
+            height: 50px;
+            color: white;
+            background-color: darkgray;
+            font-size: 24px; text-align: center;
+            line-height: 50px;
+        }        
+    }    
+    </style>
+</head>
+
+<body>
+<div id="container">
+    <div id="header">Header</div>
+    <div id="main">Content</div>
+    <div id="sidebar">Sidebar</div>
+    <div id="footer">Footer</div>
+</div>
+</body>
+
+</html>

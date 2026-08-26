@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<!-- 宣告這份文件使用最新的 HTML5 網頁標準規格 -->
+<html lang="zh-Hant-TW">
+<!-- 整個網頁的起點，設定主要語言為繁體中文（台灣），防止瀏覽器跳出翻譯提示 -->
+
+<head>
+  <!-- 【HEAD 區塊】：網頁的大腦，負責後台設定。除 title 外，裡面的東西在畫面上都看不到 -->
+
+  <!-- 設定網頁編碼為萬國碼 (UTF-8)，防止中文變成亂碼 -->
+  <meta charset="UTF-8">
+
+  <!-- 響應式網頁 (RWD) 必備：讓網頁寬度自動符合手機、平板、電腦等不同裝置的螢幕 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO 搜尋引擎優化：出現在 Google 搜尋結果標題下方的描述文字 -->
+  <meta name="description" content="全方位整合 HTML 表格與表單的現代化教學網頁">
+
+  <!-- 網頁的標題：會顯示在瀏覽器最上方的分頁標籤上 -->
+  <title>HTML 表格與表單全方位實戰範例</title>
+
+  <style>
+    /* 【CSS 樣式區】：負責網頁的排版、配色與外觀裝潢 */
+
+    /* 全域基礎樣式調整：影響整個網頁的底色與字體 */
+    body {
+      font-family: 'Fira Code', 'Segoe UI', Roboto, sans-serif;
+      background-color: #f8fafc; /* 網頁背景顏色（淡淡的灰藍色） */
+      color: #334155;            /* 全網頁預設的文字顏色（深灰色） */
+      padding: 40px 20px;        /* 網頁內圍留白（上下 40px，左右 20px） */
+      margin: 0;                 /* 消除瀏覽器預設的邊界縫隙 */
+    }
+
+    /* 置中大容器：把內容集中在畫面的正中間 */
+    .container {
+      max-width: 800px;          /* 限制容器最大寬度為 800 像素 */
+      margin: 0 auto;            /* 區塊置中密技：上下留白 0，左右自動平分剩餘空間 */
+      background-color: #ffffff; /* 容器背景填滿純白色 */
+      padding: 30px;             /* 容器內部四周留白 30 像素 */
+      border-radius: 12px;       /* 幫容器的四個角加上圓弧 */
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05); /* 現代感高級微弱陰影 */
+    }
+
+    /* 區域大標題的樣式 */
+    h2 {
+      color: rgb(226, 16, 86);   /* 標題文字顏色改為指定桃紅色 */
+      border-bottom: 2px solid #f1f5f9; /* 在標題下方加上一條淡淡的灰色裝飾底線 */
+      padding-bottom: 10px;      /* 讓底線跟標題文字之間有 10 像素的距離 */
+      margin-top: 30px;          /* 讓標題與上一個區塊推開 30 像素的距離 */
+    }
+
+    /* =======================================================
+       【表格區 CSS 樣式】 (控制邊框合併、寬度、斑馬線、Hover)
+       ======================================================= */
+    table {
+      width: 100%;               /* 表格寬度佔滿父容器的 100% */
+      border-collapse: collapse; /* 關鍵：將雙線邊框「合併」為單一邊框，消除格子間的醜縫隙 */
+      margin: 20px 0;            /* 表格的上下外距 20 像素，左右為 0 */
+      font-size: 16px;           /* 設定表格內文字的大小 */
+    }
+
+    /* 同時把細邊框顏色套用在：表格本體、表頭格子(th)、資料格子(td) */
+    table, th, td {
+      border: 1px solid #cbd5e1; /* 全局格線為 1 像素寬、實線、淺灰色 */
+    }
+
+    /* 針對表格最外圍的一圈強化視覺 */
+    table {
+      border: 3px solid rgb(226, 16, 86); /* 最外圍大框線加粗為 3 像素、桃紅色 */
+    }
+
+    /* 控制所有格子的內襯距離與對齊 */
+    th, td {
+      padding: 12px 16px;        /* 格子內文字上下留白 12px，左右留白 16px */
+      text-align: left;          /* 文字一律靠左對齊 */
+    }
+
+    /* 專屬表頭（th）的樣式 */
+    th {
+      background-color: rgb(226, 16, 86); /* 表頭整列背景填滿桃紅色 */
+      color: white;              /* 表頭文字改為純白色 */
+      font-weight: 600;          /* 字體加粗 */
+    }
+
+    /* 斑馬線效果：nth-child(even) 代表選取「所有偶數列（2, 4, 6...）」 */
+    tbody tr:nth-child(even) {
+      background-color: #f8fafc; /* 讓偶數列的背景變成極淡的灰色 */
+    }
+
+    /* 滑鼠懸停效果：當使用者的滑鼠游標移到資料列（tr）上方時觸發 */
+    tbody tr:hover {
+      background-color: #ffe4e6; /* 讓滑鼠指到的那一列瞬間變成淡淡的桃粉色 */
+      cursor: pointer;           /* 讓滑鼠游標變成「超連結的手指形狀」 */
+    }
+
+    /* =======================================================
+       【表單區 CSS 樣式】 (控制輸入框外觀、排版)
+       ======================================================= */
+    /* 每一個輸入欄位的獨立外包裝 */
+    .form-group {
+      margin-bottom: 20px;       /* 欄位與欄位之間保持 20 像素的下外距 */
+    }
+
+    /* 欄位上方的小標題文字 */
+    .form-group label {
+      display: block;            /* 強制讓 label 獨佔一行 */
+      margin-bottom: 8px;        /* 跟下方的輸入框推開 8 像素的距離 */
+      font-weight: bold;         /* 字體加粗 */
+    }
+
+    /* 所有文字類輸入框的預設精美外觀 */
+    .form-control {
+      width: 100%;               /* 輸入框寬度佔滿 100% */
+      padding: 10px 14px;        /* 輸入框內文字的留白距離 */
+      font-size: 16px;           /* 打字時的字體大小 */
+      border: 2px solid #cbd5e1; /* 預設邊框為 2 像素寬的淡灰色線條 */
+      border-radius: 6px;        /* 輸入框四個角微微變圓 */
+      box-sizing: border-box;    /* 防止 padding 內距把輸入框的總寬度撐爆 */
+      outline: none;             /* 拔掉瀏覽器預設外框，我們要自己用 onfocus 做專屬特效 */
+      transition: all 0.2s ease-in-out; /* 動態特效滑順過渡動畫 */
+    }
+
+    /* 單選鈕與複選框的文字排版 */
+    .radio-group, .checkbox-group {
+      margin-top: 5px;
+    }
+
+    /* 單選/複選框旁邊的文字樣式 */
+    .radio-group label, .checkbox-group label {
+      display: inline-block;     /* 讓文字可以橫向並排 */
+      margin-right: 15px;        /* 每個選項之間保持 15 像素的右邊間距 */
+      font-weight: normal;       /* 文字不用加粗 */
+      cursor: pointer;           /* 滑鼠移上去時顯示手指形狀，點文字就能觸發勾選 */
+    }
+
+    /* 送出按鈕的預設外觀 */
+    .btn-submit {
+      background-color: rgb(226, 16, 86); /* 按鈕背景為桃紅色 */
+      color: white;              /* 按鈕文字為白色 */
+      border: none;              /* 拔掉按鈕預設的醜邊框 */
+      padding: 12px 24px;        /* 按鈕的大小內襯留白 */
+      font-size: 16px;           /* 按鈕文字大小 */
+      border-radius: 6px;        /* 按鈕做圓角 */
+      cursor: pointer;           /* 滑鼠移上去顯示手指 */
+      font-weight: bold;         /* 字體加粗 */
+    }
+
+    /* 當滑鼠移到送出按鈕上方時 */
+    .btn-submit:hover {
+      background-color: #a10b3d; /* 讓桃紅色稍微變深，產生被按壓的視覺反饋 */
+    }
+
+    /* 清空/重設按鈕的外觀 */
+    .btn-reset {
+      background-color: #64748b; /* 背景採用中性的灰色 */
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-left: 10px;         /* 與左邊的送出按鈕推開 10 像素的距離 */
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 【BODY 區塊】：網頁的身體，所有在網頁畫面上看得到的文字、圖片、表格通通寫在這裡面 -->
+
+  <div class="container">
+    <h1>⚔️ 網頁綜合實戰練習</h1>
+    <p>本網頁整合了語意化表格、進階 CSS 渲染效果，以及含有互動事件的表單種類。</p>
+
+    <!-- =======================================================
+       【SECTION 1: 表格區】 (使用完整的 thead, tbody, tfoot 語意化標籤)
+       ======================================================= -->
+    <h2>📊 角色數據清單 (Table)</h2>
+    <table>
+      <!-- 1. 表頭區（欄位名稱） -->
+      <thead>
+        <tr>
+          <th>角色姓名</th>
+          <th>職業類型</th>
+          <th>魔法專長</th>
+        </tr>
+      </thead>
+      
+      <!-- 2. 資料主體區（核心數據） -->
+      <tbody>
+        <tr>
+          <td>芙莉蓮</td>
+          <td>魔法使</td>
+          <td>收集民間魔法、一般攻擊魔法</td>
+        </tr>
+        <tr>
+          <td>費倫</td>
+          <td>魔法使</td>
+          <td>高速施法、防禦魔法</td>
+        </tr>
+        <tr>
+          <td>修塔爾克</td>
+          <td>戰士</td>
+          <td>閃光斬、高防禦肉盾</td>
+        </tr>
+      </tbody>
+
+      <!-- 3. 表尾區（備註或總計） -->
+      <tfoot>
+        <tr>
+          <td>備註說明</td>
+          <!-- colspan="2" 代表這個儲存格要「橫向合併兩格」，用來完美填滿整行空間 -->
+          <td colspan="2">以上數據為一級魔法使考試篇章之主要小隊成員。</td>
+        </tr>
+      </tfoot>
+    </table>
+
+
+    <!-- =======================================================
+       【SECTION 2: 表單區】 (使用 POST 方法將資料安全地打包發送)
+       ======================================================= -->
+    <h2>📋 一級魔法使報名表單 (Form)</h2>
+    <form action="/api/register" method="POST">
+      
+      <!-- 種類一：單行文字與密碼輸入框 -->
+      <!-- 🌟 注意：下方 input 標籤內部已徹底移除所有危險的 CSS 註解，確保瀏覽器解析正確 🌟 -->
+      <div class="form-group">
+        <!-- label 的 for 屬性如果跟 input 的 id 一模一樣，點擊文字時輸入框就會自動聚焦 -->
+        <label for="username">考生真實姓名：</label>
+        <input type="text" 
+               id="username" 
+               name="username" 
+               class="form-control" 
+               placeholder="請輸入你的姓名..." 
+               required
+               onfocus="this.style.borderColor='rgb(226, 16, 86)'; this.style.backgroundColor='#fff1f2';"
+               onblur="this.style.borderColor='#cbd5e1'; this.style.backgroundColor='#ffffff';">
+      </div>
+
+      <div class="form-group">
+        <label for="password">認證密碼：</label>
+        <!-- type="password" 會將輸入的內容自動隱藏變黑點，保護隱私 -->
+        <input type="password" 
+               id="password" 
+               name="password" 
+               class="form-control" 
+               placeholder="設定報名查閱密碼..." 
+               required
+               onfocus="this.style.borderColor='rgb(226, 16, 86)'; this.style.backgroundColor='#fff1f2';"
+               onblur="this.style.borderColor='#cbd5e1'; this.style.backgroundColor='#ffffff';">
+      </div>
+
+      <!-- 種類二：單選鈕 (Radio) -->
+      <div class="form-group">
+        <label>目前的魔法使階級 (單選)：</label>
+        <div class="radio-group">
+          <!-- 核心關鍵：同一題單選鈕的 name 名稱一定要完全相同，才能達到單選（三選一）的效果 -->
+          <input type="radio" id="rank3" name="magic_rank" value="3"> <label for="rank3">三級</label>
+          <input type="radio" id="rank2" name="magic_rank" value="2"> <label for="rank2">二級</label>
+          <input type="radio" id="rank1" name="magic_rank" value="1"> <label for="rank1">一級 (已獲得)</label>
+        </div>
+      </div>
+
+      <!-- 種類三：複選框 (Checkbox) -->
+      <div class="form-group">
+        <label>擅長的魔法屬性 (可複選)：</label>
+        <div class="checkbox-group">
+          <!-- 複選框可以讓使用者同時打勾多個項目。每一格的 value 代表勾選後傳給後端的值 -->
+          <input type="checkbox" id="attr1" name="skills" value="attack"> <label for="attr1">攻擊</label>
+          <input type="checkbox" id="attr2" name="skills" value="defense"> <label for="attr2">防禦</label>
+          <input type="checkbox" id="attr3" name="skills" value="flying"> <label for="attr3">飛行</label>
+          <input type="checkbox" id="attr4" name="skills" value="folk"> <label for="attr4">民間雜學</label>
+        </div>
+      </div>
+
+      <!-- 種類四：下拉選單 (Select) -->
+      <div class="form-group">
+        <label for="location">預計考場區域：</label>
+        <!-- 用 select 當作大容器，裡面用 option 來列出所有可以選的清單項目 -->
+        <select id="location" name="exam_location" class="form-control">
+          <option value="rhaden">聖都歐伊薩斯特</option>
+          <option value="central">中央諸國</option>
+          <option value="north">北部高原</option>
+        </select>
+      </div>
+
+      <!-- 種類五：日期挑選器 (Date) -->
+      <div class="form-group">
+        <label for="exam_date">期望考試日期：</label>
+        <!-- type="date" 在點擊時會直接跳出網頁原生的小日曆方便點選 -->
+        <input type="date" id="exam_date" name="exam_date" class="form-control">
+      </div>
+
+      <!-- 【最後一步：動作按鈕】 -->
+      <div style="margin-top: 30px;">
+        <!-- type="submit" 點擊時會發動表單，把上面填寫的所有資料透過 POST 丟出去 -->
+        <button type="submit" class="btn-submit">確認報名並送出 (POST)</button>
+        <!-- type="reset" 點擊時會瞬間清空上面所有打過的字與勾選 -->
+        <button type="reset" class="btn-reset">全部清空</button>
+      </div>
+
+    </form>

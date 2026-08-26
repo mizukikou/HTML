@@ -1,0 +1,23 @@
+<p>文章發布時間：<time id="publish-time" datetime="2026-08-18T10:00:00">2026年8月18日</time></p>
+
+<script>
+  const timeElement = document.getElementById('publish-time');
+
+  // 1. 讀取原始 datetime 屬性
+ // window.alert(timeElement.dateTime); // "2026-08-18T10:00:00"
+
+  // 2. 獲取目前時間
+  const now = new Date();
+
+  // 更新 datetime 屬性為標準 ISO 時間字串
+  timeElement.dateTime = now.toISOString();
+  //window.alert(timeElement.dateTime);
+  // 更新顯示文字為台灣當地格式 (顯示日期與時間，並指定 Asia/Taipei 時區)
+  timeElement.textContent = new Intl.DateTimeFormat('zh-TW', {
+    dateStyle: 'full',
+    timeStyle: 'short',
+    timeZone: 'Asia/Taipei'
+  }).format(now);
+
+
+</script>

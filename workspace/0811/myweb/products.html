@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>產品型錄 - 手機王</title>
+    <style>
+      /* 完全保留相同的 CSS 樣式 */
+      * {
+        margin: 0;   
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html, body {
+        height: 100%;
+      }
+      body {
+        width: 100%; 
+        min-width: 600px; 
+        max-width: 960px; 
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+      }
+      header { width: 100%; background: #eaeaea; }
+      nav    { width: 100%; background:  rgb(26, 14, 14); color: white; }
+
+      .container {
+        display: flex;  
+        width: 100%;
+      }
+      main {
+        width: 70%;  
+        background: skyblue; 
+      }
+      aside {
+        width: 30%;  
+        background: pink;    
+      }
+      section { width: 100%; background: #eaeaea; margin-bottom: 10px; }
+      article { width: 100%; background: #eaeaea; margin-bottom: 10px; padding: 10px; }
+      
+      footer {
+        width: 100%; 
+        background: #eaeaea; 
+        margin-top: auto; 
+      }
+      nav ul {
+        text-align: center;
+      }    
+      nav ul li {
+        display: inline;
+        margin: 0 10px;
+      }
+      nav ul li a {
+        color: white;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 1. 相同的頁首 -->
+    <header>
+      <h1>手機王</h1>
+      <p>找手機、修手機、賣手機，手機專家就在這裡！</p>
+    </header>
+
+    <!-- 2. 相同的導覽列 -->
+    <nav>
+	    <ul>
+	      <li><a href="index.html">首頁</a></li>
+        <li><a style="color:chocolate">產品型錄</a></li>
+        <li><a href="stores.html">銷售門市</a></li>
+        <li><a href="about.html">關於我們</a></li>
+	    </ul>
+	  </nav>
+
+    <!-- 3. 中間內容區：已更換為產品型錄內容 -->
+    <div class="container">
+      <main>
+        <article>
+          <h1>熱門智慧型手機 A</h1>
+          <p>配備最新處理器與超高畫質相機，帶給您流暢的旗艦級體驗。</p>
+        </article>
+        <article>
+          <h1>高CP值降噪耳機 B</h1>
+          <p>主動降噪技術，極致音質表現，讓您隨時隨地沉浸在音樂世界中。</p>
+        </article>
+      </main>
+
+      <!-- 右側欄：您可以放產品分類或是熱銷排行 -->
+      <aside>
+        <section>
+          <p>產品分類</p>
+          <ul>
+            <li><a href="#">智慧型手機</a></li>
+            <li><a href="#">穿戴式裝置</a></li>
+            <li><a href="#">周邊配件</a></li>
+          </ul>
+        </section>
+      </aside>
+    </div>
+
+    <!-- 4. 相同的頁尾 -->
+    <footer>
+      <p>&copy; 2025快樂通訊公司</p>
+      <p><a href="#">Back to top</a></p>
+    </footer>
+
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <ul>
+      <li><a href="pre.html">連結到pre.html網頁</a></li>
+      <li><a href="pre.html" target="_self">連結到pre.html網頁(使用target="_self")</a></li>
+	    <li><a href="pre.html" target="_blank">連結到pre.html網頁(使用target="_blank")</a></li>
+      <li><a href="pre.html" target="test1">連結到pre.html網頁(使用target="test1")</a></li>
+      <li><a href="pre.html" target="test2">連結到pre.html網頁(使用target="test2")</a></li>
+      <li><a href="pre.html" target="test3" onclick="window.open(this.href,'test3','width=600,height=400')">連結到pre.html網頁(另開視窗,使用target="test3")</a></li>
+      <li><a href="pre.html" target="test4" onclick="window.open(this.href,'test4','0')">連結到pre.html網頁(另開視窗,極簡模式")</a></li>
+
+
+      <!-- download：強制瀏覽器儲存檔案而不是嘗試打開它。同時可給屬性值（例如 download="new-name.rar"）來改下載後檔名。 -->
+      <li><a href="poem.rar" download>下載poem.rar檔案</a></li>
+    
+      <li><a href="https://www.google.com.tw/">連線到Google</a></li>
+      <li><a href="https://www.google.com.tw/" target="_self">連線到Google(使用target="_self")</a></li>
+      <li><a href="https://www.google.com.tw/" target="_blank">連線到Google(使用target="_blank")</a></li>
+      <!-- 當你用 target 且連向外部網站時，瀏覽器為了安全性，會自動且強制為這個 <a> 標籤加上 rel="noopener" 屬性,切斷新分頁與舊分頁的控制權聯絡。，導致原網頁再次點擊時，瀏覽器「找不到」剛才建立的 test1 頁籤。 -->
+      <!-- 因為伺服器端開啟COOP(Cross-Origin-Opener-Policy: same-origin)安全性防禦標頭 (HTTP Headers)。P 安全標頭Google 等大型網站在伺服器端設定了名為 (COOP) 的安全防頭。 -->
+      <li><a href="https://www.google.com.tw/" target="test1">連線到Google(使用target="test1")</a></li>
+      <li><a href="https://www.yahoo.com.tw/" target="test1">連線到Yahoo(使用target="test1")</a></li>
+
+      <li><a href="mailto:jean@mail.lucky.com">寫信給客服</a></li>
+	</ul>
+  </body>
+</html>

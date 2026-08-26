@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <style>
+        table {
+          border-collapse: collapse; /* 合併邊框 */
+          width: 100%;
+          background-color: #d8a5d5; /* 設定表格背景顏色 */
+        }
+
+        th, td {
+          border: 1px solid #ddd;
+          padding: 12px;
+        }
+
+        /* 奇數列灰色（斑馬線效果） */
+        tr:nth-child(odd) {
+          background-color: #f9f9f9;
+        }
+
+        /* ⚡️ 關鍵：滑鼠移上去時，整列背景變色，並產生手指光標 */
+        tr:hover {
+          background-color: #1adbc1; /* 淡淡的藍灰色 */
+          cursor: pointer;           /* 光標變成超連結的手指形狀 */
+        }
+
+    </style>
+  </head>
+  <body>
+    <table border="1">
+      <tr>
+        <th>星期一</th>
+        <th>星期二</th>
+        <th>星期三</th>
+      </tr>
+      <tr>
+        <td rowspan="2">瑜珈</td>
+        <td>烹飪</td>
+        <td>插花</td>
+      </tr>
+      <tr>
+        <td>茶道</td>
+        <td>茶道</td>
+      </tr>
+    </table>
+    <table>
+      <tr>
+        <th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th>
+      </tr>
+      <tr>
+        <td>1</td><td colspan="3">2</td>><td rowspan="2">5</td><td>6</td>
+      </tr>
+      <tr>
+        <td>a</td><td colspan="2" rowspan="2">b</td><td>c</td><td>d</td>
+      </tr>
+      <tr>
+        <td>o</td><td>p</td><td>q</td><td>r</td>
+      </tr>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,16 @@
+<time id="user-local-time" datetime="2026-08-18T10:00:00+08:00"></time>
+
+<script>
+  const el = document.getElementById('user-local-time');
+  const date = new Date(el.dateTime);
+
+  // 自動根據使用者瀏覽器/系統時區格式化顯示
+  el.textContent = new Intl.DateTimeFormat('zh-TW', {
+    dateStyle: 'full',
+    timeStyle: 'short'
+  }).format(date);
+  //window.alert(el.dateTime);
+  window.alert(el.textContent);
+  // el.dateTime：讀取的是 HTML 標籤上的屬性值，它永遠會保持您寫的 ISO 格式字串（2026-08-18T10:00:00+08:00）。
+  // el.textContent：才是您在第 8 行透過 el.textContent = ... 寫入網頁畫面的「在地化時間文字」。
+</script>

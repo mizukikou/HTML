@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>美味菜單 | Ristorante Gusto</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 導覽列 -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html"><i class="bi bi-egg-fried me-2"></i>Ristorante Gusto</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-center">
+          <li class="nav-item"><a class="nav-link" href="index.html">首頁</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">關於我們</a></li>
+          <li class="nav-item"><a class="nav-link active" href="menu.html">美味菜單</a></li>
+          <li class="nav-item"><a class="nav-link" href="booking.html">線上訂位</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">門市資訊</a></li>
+          <li class="nav-item ms-lg-3">
+            <a class="btn btn-custom text-white" href="booking-now.html"><i class="bi bi-calendar-check me-1"></i>立即訂位</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 頁頭 -->
+  <header class="page-header">
+    <div class="container">
+      <h1 class="fw-bold">美味菜單</h1>
+      <p class="mb-0">Our Specialty Menu</p>
+    </div>
+  </header>
+
+  <!-- 菜單列表 -->
+  <section class="py-5">
+    <div class="container py-4">
+      <div class="text-center">
+        <!-- 分類按鈕 -->
+        <div class="btn-group mb-5 flex-wrap" role="group">
+          <button type="button" class="btn btn-outline-danger active filter-btn" data-filter="all">全部菜色</button>
+          <button type="button" class="btn btn-outline-danger filter-btn" data-filter="starter">前菜 / 沙拉</button>
+          <button type="button" class="btn btn-outline-danger filter-btn" data-filter="pasta">手工麵 / 燉飯</button>
+          <button type="button" class="btn btn-outline-danger filter-btn" data-filter="pizza">經典披薩</button>
+          <button type="button" class="btn btn-outline-danger filter-btn" data-filter="dessert">義式甜點</button>
+        </div>
+      </div>
+
+      <div class="row g-4" id="menu-container">
+        <div class="col-md-6 col-lg-4 menu-item" data-category="starter">
+          <div class="card menu-card h-100">
+            <img src="https://images.unsplash.com/photo-1592417817098-8f3d6eb12728?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="卡布里沙拉">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <h5 class="card-title mb-0 fw-bold">經典卡布里沙拉</h5>
+                <span class="price-tag">$320</span>
+              </div>
+              <p class="card-text text-muted small">新鮮莫札瑞拉起司、有機番茄、初榨橄欖油與羅勒葉。</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 menu-item" data-category="pasta">
+          <div class="card menu-card h-100">
+            <img src="https://images.unsplash.com/photo-1621996346565-e3d5d6281292?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="波隆那肉醬細扁麵">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <h5 class="card-title mb-0 fw-bold">波隆那燉牛肉醬麵</h5>
+                <span class="price-tag">$420</span>
+              </div>
+              <p class="card-text text-muted small">慢火燉煮 6 小時傳統牛肉蔬菜高湯醬汁，搭配手工細扁麵。</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 menu-item" data-category="pizza">
+          <div class="card menu-card h-100">
+            <img src="https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="瑪格麗特披薩">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <h5 class="card-title mb-0 fw-bold">拿坡里瑪格麗特披薩</h5>
+                <span class="price-tag">$380</span>
+              </div>
+              <p class="card-text text-muted small">聖馬札諾番茄醬底、莫札瑞拉起司、新鮮羅勒。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-4 text-center">
+    <div class="container">
+      <p class="mb-0 small text-secondary">&copy; 2026 Ristorante Gusto. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

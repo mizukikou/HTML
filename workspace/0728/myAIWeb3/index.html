@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>旅遊網 - 首頁</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .hero-banner {
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            color: white;
+            padding: 80px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 導覽列 (全站通用) -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">旅遊專家</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">首頁</a></li>
+                    
+                    <!-- 國外旅遊下拉選單 -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="outbound.html" id="outboundDrop" role="button" data-bs-toggle="dropdown">國外旅遊</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="outbound.html">概覽</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="outbound-group.html">團體行程</a></li>
+                            <li><a class="dropdown-item" href="outbound-free.html">自由行</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item"><a class="nav-link" href="domestic.html">國內旅遊</a></li>
+                    <li class="nav-item"><a class="nav-link" href="hotel.html">訂房</a></li>
+
+                    <!-- 訂票下拉選單 -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="ticket.html" id="ticketDrop" role="button" data-bs-toggle="dropdown">訂票</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="ticket.html">概覽</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="ticket-tra.html">台鐵</a></li>
+                            <li><a class="dropdown-item" href="ticket-thsr.html">高鐵</a></li>
+                            <li><a class="dropdown-item" href="ticket-flight.html">飛機</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Banner 區塊 -->
+    <header class="hero-banner text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold">探索世界，從這裡開始</h1>
+            <p class="lead">提供國外旅遊、國內旅遊、線上訂房與交通票券一站式服務</p>
+            <a href="outbound.html" class="btn btn-light btn-lg me-2">國外旅遊</a>
+            <a href="domestic.html" class="btn btn-outline-light btn-lg">國內旅遊</a>
+        </div>
+    </header>
+
+    <!-- 主內容區 -->
+    <main class="container my-5">
+        <h2 class="text-center mb-4">服務項目</h2>
+        <div class="row g-4">
+            <div class="col-md-3">
+                <div class="card h-100 text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">國外旅遊</h5>
+                        <p class="card-text">包含團體行與自由行，優質精選行程。</p>
+                        <a href="outbound.html" class="btn btn-primary">了解更多</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card h-100 text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">國內旅遊</h5>
+                        <p class="card-text">深度探索台灣各地美景與私房景點。</p>
+                        <a href="domestic.html" class="btn btn-primary">了解更多</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card h-100 text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">飯店訂房</h5>
+                        <p class="card-text">海內外熱門飯店、民宿即時訂房優惠。</p>
+                        <a href="hotel.html" class="btn btn-primary">了解更多</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card h-100 text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">交通訂票</h5>
+                        <p class="card-text">台鐵、高鐵及國際機票快速代訂。</p>
+                        <a href="ticket.html" class="btn btn-primary">了解更多</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 頁尾 -->
+    <footer class="bg-dark text-white text-center py-3">
+        <p class="mb-0">&copy; 2026 旅遊網 版權所有</p>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

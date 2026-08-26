@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>DL 搭配 DIV 排版範例</title>
+  <style>
+    /* 1. 整個定義列表的外框與寬度 */
+    .book-spec {
+      width: 450px;
+      border: 5px solid #333;
+      border-radius: 6px;
+      padding: 0;
+    }
+
+    /* 2. 重點：因為有了 div，我們可以輕鬆把每一組設為 Flexbox 彈性佈局 */
+    .spec-group {
+      display: flex;         /* 讓內部的 dt 和 dd 左右並排 */
+      border-bottom: 1px solid #ddd; /* 幫每一組加上淡淡的底線 */
+      padding: 10px;
+    }
+
+    /* 移除最後一組的底線，避免線條重複 */
+    .spec-group:last-child {
+      border-bottom: none;
+    }
+
+    /* 3. 設定標題（名詞）的寬度與樣式 */
+    /*選取所有被包在 .spec-group（類別）裡面的 <dt> 標籤，並對它們套用樣式。*/
+    .spec-group dt {
+      width: 100px;         /* 固定左側標題寬度，對齊超完美 */
+      font-weight: bold;
+      color: #555;
+    }
+
+    /* 4. 設定內容（詳情）的樣式 */
+    .spec-group dd {
+      margin: 0;            /* 清除瀏覽器預設的右移縮排 */
+      color: #000;
+      flex: 1;              /* 讓內容自動填滿剩餘的右側空間 */
+    }
+  </style>
+</head>
+<body>
+
+  <h2>張愛玲小說《半生緣》資料表</h2>
+
+  <dl class="book-spec">
+    <!-- 第一組：有了 div 隔離，樣式設定極度方便 -->
+    <div class="spec-group">
+      <dt>書名</dt>
+      <dd>半生緣（原名《十八春》）</dd>
+    </div>
+
+    <!-- 第二組 -->
+    <div class="spec-group">
+      <dt>作者</dt>
+      <dd>張愛玲</dd>
+    </div>
+
+    <!-- 第三組 -->
+    <div class="spec-group">
+      <dt>出版年份</dt>
+      <dd>1950 年（期刊連載）</dd>
+    </div>
+  </dl>
+
+    <dl>
+      <dt>黑面琵鷺</dt>
+      <dd>黑面琵鷺最早的棲息地是韓國及中國的北方沿海，但近年來它們覓著了
+          一個新的棲息地，那就是寶島台灣的曾文溪口沼澤地。</dd>
+      <dt>赤腹鷹</dt>
+      <dd>赤腹鷹的棲息地在墾丁、恆春一帶，只要一到每年的八、九月，赤腹鷹
+          就會成群結隊的到台灣過冬，愛鷹的人士可千萬不能錯過。</dd>
+    </dl>
+</body>
+</html>
+
+
+
+  

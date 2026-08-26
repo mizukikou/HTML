@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>正確範例 - 使用 Padding 完美留白</title>
+    <style>
+        /* ⚡ 全域宣告：確保設定 padding 後，元素總寬高不會被撐大 */
+        * {
+            box-sizing: border-box;
+        }
+
+        /* 網頁基礎重設 */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* 頂部基準線（用來對比觀察） */
+        .header-line {
+            width: 100%;
+            height: 50px;
+            background-color: #f1c40f; /* 黃色 */
+            text-align: center;
+            line-height: 50px;
+            font-weight: bold;
+        }
+
+        /* ⭕ 正確的父元素 */
+        .parent-success {
+            width: 200px;
+            height: 200px; /* 因為設定了 border-box，即使加了 padding-top，總高度依然維持 200px */
+            background-color: #e74c3c; /* 紅色 */
+            color: white;
+            
+            /* 由父元素主動內縮 40px，把子元素推下去，成功隔離塌陷 */
+            padding-top: 40px; 
+        }
+
+        /* ⭕ 正確的子元素 */
+        .child-success {
+            width: 100px;
+            height: 100px;
+            background-color: #3498db; /* 藍色 */
+            color: white;
+            text-align: center;
+            line-height: 100px;
+            
+            /* 移除原先的 margin-top，改由父元素的 padding 來控制距離 */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-line">網頁頂部黃色基準線</div>
+
+    <!-- 觀察重點：紅色區塊完美緊貼黃色區塊，藍色區塊在紅色內部下方 40px 處 -->
+    <div class="parent-success">
+        父元素 (200x200)
+        <div class="child-success">子元素</div>
+    </div>
+
+</body>
+</html>

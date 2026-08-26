@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>綜所稅計算器</title>
+  <script>
+    function calculateTax() {
+      const income = parseInt(document.getElementById("income").value, 10);
+      if (isNaN(income) || income < 0) {
+        document.getElementById("result").textContent = "請輸入有效的金額";
+        return;
+      }
+      // 累進稅率級距與稅率
+      const brackets = [
+        {upper: 590000,   rate: 0.05},
+        {upper: 1330000,  rate: 0.12},
+        {upper: 2660000,  rate: 0.20},
+        {upper: 4980000,  rate: 0.30},
+        {upper: Infinity, rate: 0.40}
+      ];
+      const levels = [0, 590000, 1330000, 2660000, 4980000];
+      let tax = 0;
+	  // 根據各級稅率分段計算應納稅額（tax）的累計總和
+      for (let i = 0; i < brackets.length; i++) {
+        let lower = levels[i];
+        let upper = brackets[i].upper;
+        let rate = brackets[i].rate;
+        if (income > lower) {
+          let taxable = Math.min(income, upper) - lower;
+          tax += taxable * rate;
+        } else {
+          break;
+        }
+      }
+      document.getElementById("result").textContent =
+        "應納稅額為新台幣：" + Math.round(tax).toLocaleString() + " 元";
+    }
+  </script>
+</head>
+<body>
+  <h1>綜所稅計算器</h1>
+  <label for="income">請輸入綜合所得淨額（元）：</label><br>
+  <input type="number" id="income" placeholder="例如：800000"><br><br>
+  <button onclick="calculateTax()">計算應納稅額</button>
+  <p id="result"></p>
+</body>
+</html>

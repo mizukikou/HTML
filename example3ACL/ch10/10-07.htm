@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>範例</title>    
+    <style>
+    @keyframes myanimation{
+    	from { left: 10px; }
+    	to { left: 300px;}
+    }
+
+	.box {
+		width: 100px;
+	  	height: 100px;  
+	  	background-color: lightblue;
+	  	border: 1px dotted black; 
+	  	text-align: center;	 
+	  	line-height: 100px; 
+	  	position: absolute;	 
+	  	animation-name: myanimation;
+	  	animation-duration: 1s;
+	  	animation-timing-function: ease-in-out; 
+	  	animation-direction: alternate;	
+	  	animation-iteration-count: infinite;
+	}
+	.box:hover{
+		animation-play-state: paused;
+	}
+    </style>    
+</head>
+
+<body>
+	<div class="box">BOX</div>
+</body>
+
+</html>

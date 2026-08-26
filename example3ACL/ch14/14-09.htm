@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>範例</title>
+	<style>
+		body {font-family:Verdana, Geneva, sans-serif; font-size:11pt;}
+		div {float:left; margin-left:5px; border:solid #000 1px;}
+		#box {background-color:#FF9;height:100px;width:100px;}
+	</style>
+	<script src="http://code.jquery.com/jquery-3.2.0.min.js"></script>
+	<script>
+	$(document).ready(function(){	
+		$('#btnDown').click(function(){
+			$('#box').slideDown(500);
+		});
+		$('#btnUp').click(function(){
+			$('#box').slideUp(500);
+		});
+		$('#btnToggle').click(function(){
+			$('#box').slideToggle(500);
+		});	
+	});
+	</script>
+</head>
+
+<body>
+<p>
+  <input type="button" name="btnDown" id="btnDown" value="展開">
+  <input type="button" name="btnUp" id="btnUp" value="收起">
+  <input type="button" name="btnToggle" id="btnToggle" value="切換">
+</p>
+<p>&nbsp; </p>
+<div id="box">Box</div>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>範例</title>
+	<style>
+	body {
+		font-family: Verdana, Geneva, sans-serif;
+		font-size: 11pt;
+	}
+	</style>
+	<script src="http://code.jquery.com/jquery-3.2.0.min.js"></script>
+	<script>
+	$(document).ready(function(){
+		$('#sList').before('<h1>本書重點技術</h1>');
+		$('#sList').prepend('<li>HTML5</li>');
+		$('#sList').append('<li>jQuery</li>');
+		$('#sList').after('<p>歡迎一起來學習!</p>');
+	});
+	</script>
+</head>
+
+<body>
+<ul id="sList">
+  <li>CSS3</li>
+  <li>JavaScript</li>
+</ul>
+</body>
+</html>

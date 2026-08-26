@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <style>
+      div{
+        background-color: #f0f0f0;
+        padding: 0px;
+      }
+    </style>
+  </head>	
+  <body>
+        <!-- 區域標籤的特性
+         1.在標籤的前後自動換行,且上個標籤結束的換行與下個標籤開始的換行會重疊。
+         2.區域之間，沒有上下間距
+         3.寬度預設為100%，高度為auto
+        -->
+    <div id="navigation">
+      test
+      <ul>
+        <li><a href="products.html">產品型錄</a></li>
+        <li><a href="stores.html">銷售門市</a></li>
+        <li><a href="about.html">關於我們</a></li>
+      </ul>
+    </div>
+    <div>
+      test
+      <ol type="1">
+        <li><a href="products.html">產品型錄</a></li>
+        <li><a href="stores.html">銷售門市</a></li>
+        <li><a href="about.html">關於我們</a></li>
+      </ol>
+    </div>
+    <div>
+      test
+      <ol type="1">
+        <div style="color: rgb(255, 0, 200);">div區域標籤</div>的特性<br>
+         <li>在標籤的前後自動換行,且上個標籤結束的換行與下個標籤開始的換行會重疊。</li>
+         <li>區域之間，沒有上下間距</li>
+         <li>寬度預設為100%，高度為auto</li>
+      </ol>
+    </div>
+        <div>
+      test
+      <ol type="a">
+        <span style="color: red;">span區域標籤</span>的特性<br>
+         <li>在標籤的前後<span style="color: red; font-weight: bold;">[不會]</span>自動換行。</li>
+         <li>區域之間，沒有上下間距</li>
+         <li>寬度預設為100%，高度為auto</li>
+      </ol>
+    </div>
+  </body>
+</html>
