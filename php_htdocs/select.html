@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>居住縣市選擇</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+        background: #eef4f1;
+        color: #18332b;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        display: grid;
+        min-height: 100vh;
+        margin: 0;
+        padding: 24px;
+        place-items: center;
+      }
+
+      .form-card {
+        width: min(100%, 480px);
+        padding: clamp(24px, 5vw, 40px);
+        border: 1px solid #d5e3dd;
+        border-radius: 12px;
+        background: #ffffff;
+        box-shadow: 0 16px 40px rgb(36 74 61 / 12%);
+      }
+
+      h1 { margin: 0 0 8px; font-size: clamp(1.5rem, 4vw, 2rem); }
+      .hint { margin: 0 0 24px; color: #557067; }
+      label { display: block; margin-bottom: 8px; font-weight: 700; }
+
+      select {
+        width: 100%;
+        min-height: 156px;
+        padding: 8px;
+        border: 1px solid #9fb9ae;
+        border-radius: 8px;
+        background: #fbfdfc;
+        color: inherit;
+        font: inherit;
+      }
+
+      select:focus-visible { outline: 3px solid #9bd4bd; outline-offset: 2px; }
+
+      .actions { display: flex; gap: 12px; margin-top: 24px; }
+      button {
+        flex: 1;
+        min-height: 44px;
+        border: 1px solid #1d7053;
+        border-radius: 7px;
+        background: #1d7053;
+        color: #ffffff;
+        cursor: pointer;
+        font: inherit;
+        font-weight: 700;
+      }
+
+      button[type="reset"] { background: #ffffff; color: #1d7053; }
+      button:hover { filter: brightness(0.94); }
+      button:focus-visible { outline: 3px solid #9bd4bd; outline-offset: 2px; }
+    </style>
+  </head>
+  <body>
+    <main class="form-card">
+      <h1>選擇居住縣市</h1>
+      <p class="hint">可按住 Ctrl（Windows）或 Command（Mac）複選。</p>
+      <form action="select.php" method="get">
+        <label for="county">居住縣市</label>
+        <select id="county" name="county[]" multiple size="6" required>
+          <option value="台北市">台北市</option>
+          <option value="新北市" selected>新北市</option>
+          <option value="桃園市">桃園市</option>
+          <option value="台中市">台中市</option>
+          <option value="台南市">台南市</option>
+          <option value="高雄市">高雄市</option>
+        </select>
+        <div class="actions">
+          <button type="submit">查看選擇結果</button>
+          <button type="reset">重設</button>
+        </div>
+      </form>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <style>
+      [class] {color: blue;}
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li class="apple">蘋果牛奶</li>
+      <li class="apple-banana">香蕉蘋果牛奶</li>
+      <li class="grape apple banana">特調牛奶</li>
+      <li class="kiwifruit apple">特調果汁</li>
+    </ul>
+  </body>
+</html>
+<!-- 在 <style> 標籤中，使用了 中括號 [class]，這在 CSS 中叫做「屬性選擇器」。
+  「屬性數值篩選選擇器」
+  [class="apple"]：精確等於。只有第一行「蘋果牛奶」會變色。
+  [class~="apple"]：包含單字。包含 apple 這個獨立單字的行（第 1、3、4 行）會變色，但第 2 行（apple-banana 算同一個字）不會變色。[class*="apple"]：字串包含。只要名字裡有出現 apple 這幾個字母的，通通都會變色（四行都會變色）。 -->

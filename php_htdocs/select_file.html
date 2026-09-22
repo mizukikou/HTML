@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>檔案上傳</title>
+  <style>
+    /* 簡單的排版優化，讓表單更好看 */
+    .form-group {
+      margin-bottom: 15px;
+    }
+    .btn-group {
+      margin-top: 15px;
+    }
+    button, input[type="reset"] {
+      padding: 5px 15px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+    <div>
+         <form action="upload.php" method="post" enctype="multipart/form-data">
+                 <!-- 優化 1：使用 class 替代不具語意的 <p> 標籤進行排版 -->
+                 <div class="form-group">
+                     <!-- 優化 2：增加 accept 屬性限制檔案類型（可選） -->
+                     <label for="file">選擇檔案(圖片或 PDF,最大容量 5MB)：</label> 
+                     <input type="file" name="file" id="file" accept="image/*, .pdf" required>
+                 </div>
+                 
+                 <!-- 優化 3 & 4：移除重複的 submit，改用統一且彈性較高的 <button> -->
+                 <div class="btn-group">
+                     <input type="reset" value="清除內容">  
+                     <button type="submit">開始上傳</button>
+                 </div>
+         </form>
+    </div>
+</body>
+</html>

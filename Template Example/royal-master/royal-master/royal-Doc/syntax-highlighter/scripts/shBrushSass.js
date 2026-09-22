@@ -75,7 +75,7 @@
 			{ regex: r.singleQuotedString,								css: 'string' },		// single quoted strings
 			{ regex: /\#[a-fA-F0-9]{3,6}/g,								css: 'value' },			// html colors
 			{ regex: /\b(-?\d+)(\.\d+)?(px|em|pt|\:|\%|)\b/g,			css: 'value' },			// sizes
-			{ regex: /\$\w+/g,											css: 'variable' },		// variables
+			{ regex: /$\w+/g,											css: 'variable' },		// variables
 			{ regex: new RegExp(this.getKeywords(statements), 'g'),		css: 'color3' },		// statements
 			{ regex: new RegExp(this.getKeywords(preprocessor), 'g'),	css: 'preprocessor' },	// preprocessor
 			{ regex: new RegExp(getKeywordsCSS(keywords), 'gm'),		css: 'keyword' },		// keywords

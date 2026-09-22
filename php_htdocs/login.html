@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>輸入帳號密碼</title>
+    <style>
+      /* 現代寫法：直接用 CSS 統一控制所有輸入框的外觀 */
+        input[type="text"], input[type="password"] {
+        width: 200px;         /* 精準設定寬度為 200 像素 */
+        padding: 8px;         /* 讓格子內部有呼吸空間 */
+        border-radius: 4px;   /* 加上精美的微圓角 */
+        }
+    </style>
+  </head>
+  <body>
+    <!-- 🚀 核心修改：將傳遞方式變更為 post，並移除了原本標籤中錯誤的逗號 -->
+    <form action="login_check.php" method="post">
+      <p>帳號：<input type="text" name="userName" size="20"></p>
+      <p>密碼：<input type="password" name="userPWD" size="20"></p>
+      <input type="submit" value="登入">
+      <input type="reset" value="重設">
+    </form>
+  </body>
+</html>

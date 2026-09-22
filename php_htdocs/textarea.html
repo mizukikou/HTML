@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <form action="textarea.php" method="get">
+      <!-- cols="40" 限制的是 「文字輸入框在畫面上的顯示寬度）」，而不是限制「可以輸入的總字數」。 -->
+      <!-- 限制使用者「最多只能輸入 40 個字」，必須使用 maxlength 屬性。 -->
+      <textarea name="trouble" cols="40" rows="5" maxlength="40" placeholder="例如續航力不佳"></textarea>
+      <button type="submit">提交</button>
+      <button type="reset">重設</button>
+    </form>
+  </body>
+</html>

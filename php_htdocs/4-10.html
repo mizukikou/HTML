@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5 表單輸入類型</title>
+  </head>
+  <body>
+    <form action="4-10data.php" method="get">
+        <p><label for="username">姓名：</label><input id="username" type="text" name="username" placeholder="請輸入姓名" required autofocus autocomplete="name"></p>
+        <p><label for="search">搜尋：</label><input id="search" type="search" name="search"></p>
+        <p><label for="email">信箱1：</label><input id="email" type="email" name="email" autocomplete="email"></p>
+        <p><label for="email2">信箱2：</label><input id="email2" type="email" name="email2" autocomplete="email"></p>
+        <p><label for="url">網址：</label><input id="url" type="url" name="url" placeholder="https://example.com"></p>
+        <p><label for="tel">電話：</label><input id="tel" type="tel" name="tel" autocomplete="tel"></p>
+        <p><label for="number">數字：</label><input id="number" type="number" name="number" min="1" max="21" step="3"></p>
+        <p><label for="date">日期：</label><input id="date" type="date" name="date"></p>
+        <p><label for="time">時間：</label><input id="time" type="time" name="time"></p>
+        <p><label for="range">程度：</label><input id="range" type="range" name="range" min="0" max="100" step="1" value="50"> <output id="range-value" for="range">50</output></p>
+        <p><label for="color">顏色：</label><input id="color" type="color" name="color" value="#1d7053"></p>
+
+        <p><input type="submit" value="送出">
+        <input type="reset" value="重置"></p>
+    </form>
+    <script>
+      const range = document.getElementById('range');
+      const rangeValue = document.getElementById('range-value');
+
+      range.addEventListener('input', () => {
+        rangeValue.value = range.value;
+        rangeValue.textContent = range.value;
+      });
+    </script>
+  </body>
+</html>
