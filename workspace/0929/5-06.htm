@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>範例</title>
+	<style>
+		p::first-line{
+		  background-color: yellow;
+		}
+		p::first-letter{
+		  font-size: 200%;
+		}
+		ul::before{
+			content: "準備材料";
+			color: white;
+			background-color: black;
+			margin-left: -1em;
+		}
+		ul::after{
+			content: " ";
+			display: block;
+			border-bottom: 1px solid black;
+		}		
+	</style>
+</head>
+<body>
+	<h2>花生餅乾</h2>
+	<p>簡單純萃，往往最令人難忘。<br>花生餅乾的製作相當簡單，只要用下列材料組合並進行烘烤，即可做出外表香酥入口即化的成品。不要錯過了！</p>
+	<ul>
+		<li>無鹽奶油 120g</li>
+		<li>白細砂糖 100g</li>
+		<li>全蛋1顆	50g</li>
+		<li>低筋麵粉 250g</li>
+		<li>花生醬 50g</li>
+		<li>泡打粉 2g</li>
+	</ul>
+</body>
+</html>
