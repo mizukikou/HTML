@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>聯絡我們 - 賽博版</title>
+    <title>聯絡我們 - 沐雪樓主</title>
     <style>
         body {
             font-family: "Segoe UI", Roboto, Helvetica, Arial, "Microsoft JhengHei", sans-serif;
-            background-color: #0f172a; 
+            background: url('../images/city.png') no-repeat center center / cover;
             color: #e2e8f0;           
             line-height: 1.8;
             padding: 30px;
@@ -73,38 +73,57 @@
             border-bottom: 2px dashed #334155; /* 加上精緻虛線襯托底邊 */
             padding-bottom: 10px;
             display: block;               
+            text-align: center;
         }
 
-        ul {
-            background-color: #1e293b;
-            list-style: none;
-            padding: 25px;
+        .contact-box {
+            background-color: rgba(30, 41, 59, 0.4);
+            padding: 2px 25px;
             border-radius: 12px;
             border: 1px solid #334155;
             margin-top: 25px;
         }
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 2px 0 0 0;
+        }
         li {
-            margin-bottom: 15px;
+            margin-bottom: 2px;
             font-size: 18px;
         }
         li b {
             color: #fbbf24;
         }
 
-        /* ❤️ 心跳容器外框 */
+        /* ❤️ 心跳容器外框（矩形信封，頂部加三角形信封蓋紋路） */
         .heart-container {
-            background-color: #1e293b; 
-            width: 130px;
-            height: 130px;
+            background-color: #61cc1a; 
+            width: 160px;
+            height: 110px;
             padding: 15px;
-            border-radius: 16px;
+            border-radius: 6px;
             border: 2px solid #f43f5e; 
             box-shadow: 0 8px 24px rgba(244, 63, 94, 0.4); 
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-top: 25px;
+            margin: 25px auto 0 auto;
             animation: heartbeat 1.5s ease-in-out infinite;
+            position: relative;
+            overflow: hidden;
+        }
+        .heart-container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 80px solid transparent;
+            border-right: 80px solid transparent;
+            border-top: 45px solid rgba(0, 0, 0, 0.18);
         }
 
         @keyframes heartbeat {
@@ -127,16 +146,19 @@
 
     <!-- 2. 最上面的反白樣式大標題 -->
     <h1>聯絡我們</h1>
-    <p style="margin-top: 15px;">這裡同樣是第二層的極光世界。標題字型與第一層有著截然不同的幾何粗獷感，且高度被導航列與留白往下推移。</p>
-    
-    <!-- 3. 聯絡資訊列表 -->
-    <ul>
-        <li><b>電子郵件：</b> <span style="color: #38bdf8;">test@example.com</span></li>
-        <li><b>LINE ID：</b> <span style="color: #38bdf8;">myhtmlwebsite</span></li>
-    </ul>
+
+    <!-- 3. 說明文字與聯絡資訊列表共用同一個框 -->
+    <div class="contact-box">
+        <p style="color: #ff10f0; font-size: 2em; font-weight: bold; text-shadow: 0 0 6px rgba(0, 0, 0, 0.9);">歡迎透過下方的星際通訊管道與我們聯繫！無論是合作邀約，還是想跟駐守在這裡的小綠打聲招呼，我們都非常期待收到你的訊息。</p>
+
+        <ul>
+            <li><b>電子郵件：</b> <span style="color: #38bdf8;">alien@universe.com</span></li>
+            <li><b>LINE ID：</b> <span style="color: #38bdf8;">smallgreen</span></li>
+        </ul>
+    </div>
 
     <!-- 4. 次標題 -->
-    <h2>專屬視覺</h2>
+    <h2>江楊大道</h2>
 
     <!-- 5. 內嵌式的 SVG 霓虹心跳圖案，解決破圖問題 -->
     <div class="heart-container">
