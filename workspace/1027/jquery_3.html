@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <!-- 指定文件使用 UTF-8，確保繁體中文不會出現亂碼。 -->
+    <meta charset="UTF-8">
+    <title>jQuery 範例 - AJAX 異步載入</title>
+    <!-- 從 CDN 載入 jQuery；本頁的 $、$.ajax 等功能都由這個函式庫提供。 -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+
+    <h2>隨機使用者資料（透過 API 獲取）</h2>
+    <!-- 點擊此按鈕時才向遠端 API 發出請求。 -->
+    <button id="load-btn">抓取遠端資料</button>
+    
+    <!-- 顯示初始說明、載入狀態、API 回傳的使用者資料或錯誤訊息。 -->
+    <div id="user-info" style="margin-top: 20px;">
+        <p>點擊按鈕獲取資料...</p>
+    </div>
+
+    <script>
+        // 等待 HTML 文件的 DOM 建立完成後，再設定按鈕事件。
+        // 簡寫形式 $(function() {}) 等同於 jQuery 的文件就緒事件。
+        $(function() {
+            
+            // 綁定抓取按鈕的 click 事件；使用者每點一次，就執行一次 AJAX 請求。
+            $("#load-btn").click(function() {
+                
+                // 請求尚未完成時先更新畫面，讓使用者知道程式正在處理。
+                // .html() 會以新的 HTML 內容取代 #user-info 裡原有的內容。
+                $("#user-info").html("<p>資料載入中，請稍候...</p>");
+                
+                // $.ajax 會在背景發送 HTTP 請求，不必重新載入整個頁面。
+                $.ajax({
+                    url: "https://randomuser.me/api/", // 公開的隨機使用者 API；/api/ 會回傳 JSON 資料。
+                    type: "GET",                       // 使用 GET 讀取資料，不會修改遠端資料。
+                    dataType: "json",                  // 告訴 jQuery 將回應內容解析為 JavaScript 物件。
+                    
+                    // HTTP 請求成功且回應可解析為 JSON 時，執行 success 回呼。
+                    // res 是解析後的回應物件；Random User 的使用者陣列放在 res.results。
+                    success: function(res) {
+                        // API 預設回傳一位使用者，因此取 results 陣列的第一筆。
+                        var user = res.results[0];
+
+                        // 姓名由 name.first（名字）與 name.last（姓氏）組合而成。
+                        var name = user.name.first + " " + user.name.last;
+
+                        // picture.medium 是 API 提供的中尺寸頭像網址。
+                        var avatar = user.picture.medium;
+
+                        // user.nat 是國籍代碼（例如 US、TW 對應的代碼）；
+                        // 以對照表轉成繁體中文國名，讓畫面不只顯示英文字母代碼。
+                        var nationalityNames = {
+                            AU: "澳洲", BR: "巴西", CA: "加拿大", CH: "瑞士", DE: "德國",
+                            DK: "丹麥", ES: "西班牙", FI: "芬蘭", FR: "法國", GB: "英國",
+                            IE: "愛爾蘭", IN: "印度", IR: "伊朗", MX: "墨西哥", NL: "荷蘭",
+                            NO: "挪威", NZ: "紐西蘭", RS: "塞爾維亞", TR: "土耳其",
+                            UA: "烏克蘭", US: "美國"
+                        };
+
+                        // 若 API 回傳的代碼不在對照表中，就顯示原始代碼，避免欄位變成空白。
+                        var nationality = nationalityNames[user.nat] || user.nat;
+                        
+                        // 使用樣板字串（反引號）插入上方取得的資料，組成要顯示的 HTML。
+                        // ${變數} 會在字串建立時替換成對應的值。
+                        var htmlContent = `
+                            <p><strong>姓名：</strong> ${name}</p>
+                            <p><strong>國籍：</strong> ${nationality}</p>
+                            <img src="${avatar}" alt="User Avatar">
+                        `;
+                        
+                        // 將姓名、中文國籍與頭像一次放入資料容器，取代載入中的文字。
+                        $("#user-info").html(htmlContent);
+                    },
+                    
+                    // 請求失敗時執行 error 回呼，例如網路中斷、API 無法連線或回應格式錯誤。
+                    // xhr、status、error 分別提供請求物件、錯誤狀態與錯誤訊息，
+                    // 目前範例只顯示通用提示；需要除錯時可在此檢查這些參數。
+                    error: function(xhr, status, error) {
+                        $("#user-info").html("<p style='color:red;'>連線失敗，請稍後再試！</p>");
+                    }
+                });
+                
+            });
+            
+        });
+    </script>
+</body>
+</html>

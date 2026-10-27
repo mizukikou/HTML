@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX 動態網頁範例</title>
+    <!-- 引入 jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .nav-btn { 
+            padding: 10px 20px; margin-right: 10px; font-size: 16px; cursor: pointer;
+            background-color: #eee; border: 1px solid #ccc; border-radius: 4px;
+        }
+        /* 被選中按鈕的樣式 */
+        .nav-btn.active { background-color: #007bff; color: white; border-color: #0056b3; }
+        
+        /* 商品展示區 */
+        #product-container { 
+            margin-top: 20px; padding: 20px; border: 2px dashed #bbb; 
+            background-color: #f9f9f9; min-height: 100px;
+        }
+        .product-item { padding: 8px; border-bottom: 1px solid #ddd; }
+    </style>
+</head>
+<body>
+
+    <h2>⚡ 蝦拼商城 - 分類動態切換（網頁不重整）</h2>
+    <p>請試著點擊下方按鈕，注意觀察**瀏覽器的重新整理按鈕（轉圈圈）**，它完全不會動！</p>
+
+    <!-- 分類按鈕 -->
+    <button class="nav-btn active" data-category="3c">📱 3C 科技</button>
+    <button class="nav-btn" data-category="clothes">👗 時尚服飾</button>
+    <button class="nav-btn" data-category="food">🍕 美食佳餚</button>
+
+    <!-- 動態資料渲染區（只有這個區塊會變） -->
+    <div id="product-container">
+        <!-- 預設顯示 3C 商品 -->
+        <div class="product-item">iPhone 16 Pro</div>
+        <div class="product-item">MacBook Air M3</div>
+        <div class="product-item">AirPods Pro 2</div>
+    </div>
+
+    <script>
+        $(function() {
+            
+            // 監聽所有分類按鈕的點擊事件
+            $(".nav-btn").click(function() {
+                
+                // 1. 視覺動態：切換按鈕的藍色高亮樣式
+                $(".nav-btn").removeClass("active"); // 先把所有按鈕的 active 移除
+                $(this).addClass("active");          // 幫當前被點擊的按鈕加上 active
+                
+                // 2. 抓取被點擊按鈕的分類名稱 (3c, clothes, 或 food)
+                var category = $(this).data("category");
+                
+                // 3. 畫面先進入載入中的動態狀態
+                $("#product-container").html("<p>⏳ 正在背景撈取 " + category + " 的最新商品...</p>");
+                
+                // 4. 【核心 AJAX】非同步向後端（這裡用模擬 API）請求該分類的資料
+                // 在實際專案中，url 會是真實的後端網址，例如 "/api/get-products?type=" + category
+                $.ajax({
+                    url: "https://jsonplaceholder.typicode.com/posts/1", // 使用公開測試 API 模擬連線
+                    type: "GET",
+                    success: function(response) {
+                        
+                        // 5. 資料拿回來了！根據使用者點的分類，動態組合出不同的 HTML 內容
+                        // (真實開發中，這裡的資料會從 response 裡面抓取，此處為了好理解用 if 模擬後端回傳)
+                        var htmlResult = "";
+                        
+                        if (category === "3c") {
+                            htmlResult += "<div class='product-item'>📱 iPhone 16 Pro</div>";
+                            htmlResult += "<div class='product-item'>💻 MacBook Air M3</div>";
+                            htmlResult += "<div class='product-item'>🎧 AirPods Pro 2</div>";
+                        } else if (category === "clothes") {
+                            htmlResult += "<div class='product-item'>👗 正韓高腰連身裙</div>";
+                            htmlResult += "<div class='product-item'>🧥 防風機能連帽外套</div>";
+                            htmlResult += "<div class='product-item'>👟 復古老爹運動鞋</div>";
+                        } else if (category === "food") {
+                            htmlResult += "<div class='product-item'>🍕 經典瑪格麗特披薩</div>";
+                            htmlResult += "<div class='product-item'>🍜 濃郁豚骨拉麵</div>";
+                            htmlResult += "<div class='product-item'>🧋 珍珠鮮奶茶（半糖微冰）</div>";
+                        }
+                        
+                        // 6. 核心動態渲染：完全不重整網頁，直接把舊商品用新商品蓋掉！
+                        $("#product-container").html(htmlResult);
+                    },
+                    error: function() {
+                        $("#product-container").html("<p style='color:red;'>連線失敗，請檢查網路！</p>");
+                    }
+                });
+                
+            });
+            
+        });
+    </script>
+</body>
+</html>

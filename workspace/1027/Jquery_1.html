@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery 範例 - 折疊選單</title>
+    <!-- 1. 引入 jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    
+    <style>
+        .faq-item { border: 1px solid #ddd; margin-bottom: 10px; width: 300px; }
+        .faq-title { background: #f4f4f4; padding: 10px; cursor: pointer; font-weight: bold; }
+        .faq-content { padding: 10px; display: none; background: #fff; } /* 預設先隱藏內容 */
+    </style>
+</head>
+<body>
+
+    <h2>常見問題 FAQ</h2>
+    
+    <div class="faq-item">
+        <div class="faq-title">Q1: 什麼是 jQuery？</div>
+        <div class="faq-content">A1: jQuery 是一個快速、輕量級且功能豐富的 JavaScript 函式庫。</div>
+    </div>
+    
+    <div class="faq-item">
+        <div class="faq-title">Q2: 為什麼要學 jQuery？</div>
+        <div class="faq-content">A2: 它可以讓你用極短的程式碼，輕鬆搞定複雜的網頁操作與特效。</div>
+    </div>
+
+    <script>
+        // 2. 起手式：確保 HTML 元素都載入完成了
+        $(function() {
+            
+            // 監聽所有 class 為 .faq-title 的點擊事件
+            $(".faq-title").click(function() {
+                
+                // $(this) 代表當前被點擊的那個標題
+                // .next() 代表找到該標題「緊鄰的下一個元素」（即 .faq-content）
+                // .slideToggle() 自動判斷：如果目前隱藏就滑動顯示，顯示就滑動隱藏
+                $(this).next(".faq-content").slideToggle(300);
+                
+                // 【進階優化】讓沒有被點擊的其他 FAQ 內容自動收起來
+                // .parent() 找到當前的 .faq-item
+                // .siblings() 找到其他同層的 .faq-item
+                // .find(".faq-content") 找到那些同層 item 裡面的內容
+                // .slideUp() 將它們滑動隱藏
+                $(this).parent().siblings().find(".faq-content").slideUp(300);
+                
+            });
+            
+        });
+    </script>
+</body>
+</html>

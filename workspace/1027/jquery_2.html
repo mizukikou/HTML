@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery 範例 - 表單驗證</title>
+    <!-- 引入 jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        .error { color: red; font-size: 14px; display: none; }
+        .success { color: green; font-size: 14px; display: none; }
+        input { padding: 5px; margin-bottom: 5px; }
+    </style>
+</head>
+<body>
+
+    <h2>密碼強度檢查</h2>
+    <form id="regForm">
+        <label>設定密碼：</label>
+        <input type="password" id="pwd" placeholder="請輸入 6 位數以上密碼">
+        <!-- 用來顯示錯誤或成功的提示文字 -->
+        <span id="msg" class="error">❌ 密碼長度不足 6 位數！</span>
+        <span id="msg-ok" class="success">✅ 密碼長度符合規定！</span>
+        <br>
+        <button type="submit">註冊</button>
+    </form>
+
+    <script>
+        $(function() {
+            
+            // 邏輯一：【即時提示】當游標離開輸入框時，只切換紅綠字，絕不跳 alert！
+            $("#pwd").blur(function() {
+                var pwdLength = $(this).val().length;
+                
+                if (pwdLength < 6) {
+                    $("#msg").show();     // 顯示紅色錯誤提示
+                    $("#msg-ok").hide();  // 隱藏綠色成功提示
+                } else {
+                    $("#msg").hide();    // 隱藏紅色錯誤提示
+                    $("#msg-ok").show(); // 顯示綠色成功提示
+                }
+            });
+            
+            // 邏輯二：【嚴格攔截】當使用者按下「註冊」按鈕送出表單時
+            $("#regForm").submit(function(event) {
+                var pwdLength = $("#pwd").val().length;
+                event.preventDefault();
+                
+                // 如果到要送出了，密碼還是少於 6 個字
+                if (pwdLength < 6) {
+                    
+                    // 1. 確保紅色錯誤提示有跑出來
+                    $("#msg").show();
+                    $("#msg-ok").hide();
+                    
+                    // 2. 這時候跳 alert 最安全，因為使用者很明確知道自己要送出了
+                    alert("請先修正欄位錯誤！");
+                } else {
+                    $("#msg").hide();
+                    $("#msg-ok").show();
+                }
+            });
+            
+        });
+    </script>
+</body>
+</html>
